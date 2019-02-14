@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'mainapp',
     'ckeditor',
     'ckeditor_uploader',
+    'sass_processor',
 ]
 
 MIDDLEWARE = [

@@ -1,16 +1,17 @@
+{% load static %}
 <div class="container">
         <div class="box__items">
         <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5 col-xl-3">
                         <a href="index.html">
-                                <img src="/img/logo.png" class="header__logo" alt="">
+                                <img src="{% static 'img/logo.png' %}" class="header__logo" alt="">
                         </a>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xl-2">
                         <div class="block__logo">
-                                <img src="/img/logo_2.png"  title="Лауреат Премии Правительства РФ в области качества 2012г" alt="">
-                                <img src="/img/logo_3.png" title="Лауреат Премии СНГ 2013 года за достижения в области качества" class="center__logo" alt="">
-                                <img src="/img/logo_4.png" title="Член Международного института сварки" alt="">
+                                <img src="{% static 'img/logo_2.png' %}" title="Лауреат Премии Правительства РФ в области качества 2012г" alt="">
+                                <img src="{% static 'img/logo_3.png' %}" title="Лауреат Премии СНГ 2013 года за достижения в области качества" class="center__logo" alt="">
+                                <img src="{% static 'img/logo_4.png' %}" title="Член Международного института сварки" alt="">
                         </div>
 
                 </div>
@@ -40,7 +41,7 @@
                                 сварочного производства</p>
                                 <div class="mob__sasp">
                                                 <p class="mob__logo__sasp">
-                                                                <img src="/img/logo__sasp.png" alt="">
+                                                                <img src="{% static 'img/logo__sasp.png' %}" alt="">
                                                 </p>
                                                 <p class="mob__sasp__text">
                                                         Организация допущена <br>
