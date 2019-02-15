@@ -1,15 +1,15 @@
 // Кнопка поиска
 window.onload = function () {
     // Обрез текста
-    var size = 175,
-    newsContent= $('.box__news__text'),
-    newsText = newsContent.text();
-    
-if(newsText.length > size){
-  newsContent.text(newsText.slice(0, size) + '...');
-}
-
-
+    $('.box__news__text').each(function() {
+        let size = 100;
+        let newsText = $(this).text();
+        if (newsText.length > size) {
+          slicedText = newsText.slice(0, size);
+          $(this).text(`${slicedText}...`);
+        }
+      }
+    )
 
   // Бургер меню
 

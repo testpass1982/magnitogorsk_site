@@ -21,7 +21,7 @@ from django.db.models import Q
 
 def main(request):
     """this is mainpage view with forms handler and adapter to messages"""
-    title = "Главная - НАКС Смоленск"
+    title = "Главная страница АЦ НАКС Стандарт-Диагностика"
     tracker = MessageTracker()
     if request.method == 'POST':
         request_to_dict = dict(zip(request.POST.keys(), request.POST.values()))
@@ -46,27 +46,30 @@ def main(request):
         else:
             raise ValidationError('form not valid')
 
-    docs = Document.objects.filter(
-        publish_on_main_page=True).order_by('-created_date')[:3]
+    # docs = Document.objects.filter(
+    #     publish_on_main_page=True).order_by('-created_date')[:3]
 
-    main_page_news = Post.objects.filter(
-        publish_on_main_page=True).order_by('-published_date')[:3]
+    posts = Post.objects.filter(
+        publish_on_main_page=True).order_by('-published_date')[:4]
 
-    posts = {}
-    for post in main_page_news:
-        posts[post] = PostPhoto.objects.filter(post__pk=post.pk).first()
+    # posts = {}
+    # for post in main_page_news:
+    #     posts[post] = PostPhoto.objects.filter(post__pk=post.pk).first()
 
-    main_page_articles = Article.objects.filter(
-        publish_on_main_page=True).order_by('-published_date')[:3]
+    # main_page_articles = Article.objects.filter(
+    #     publish_on_main_page=True).order_by('-published_date')[:3]
 
-    print(request.resolver_match)
-    print(request.resolver_match.url_name)
+    # print(request.resolver_match)
+    # print(request.resolver_match.url_name)
+
+    for post in posts:
+        print(post)
 
     content = {
         'title': title,
         'posts': posts,
-        'docs': docs,
-        'articles': main_page_articles,
+        # 'docs': docs,
+        # 'articles': main_page_articles,
         'send_message_form': SendMessageForm(),
         'subscribe_form': SubscribeForm(),
         'ask_question_form': AskQuestionForm()
@@ -125,8 +128,8 @@ def details(request, pk=None, content=None):
             'post': obj,
             'images': attached_images,
             'documents': attached_documents,
-            'bottom_related': Article.objects.all().order_by(
-                '-created_date')[:3]
+            'bottom_related': Post.objects.all().exclude(pk=pk).order_by(
+                '-created_date')[:4]
         }
     if content == 'article':
         tags_pk_list = [tag.pk for tag in obj.tags.all()]
@@ -144,8 +147,9 @@ def details(request, pk=None, content=None):
 
     print(request.resolver_match)
     print(request.resolver_match.url_name)
+    print(return_link)
 
-    return render(request, 'mainapp/page_details.html', context)
+    return render(request, 'mainapp/post_details.html', context)
 
 
 @login_required
