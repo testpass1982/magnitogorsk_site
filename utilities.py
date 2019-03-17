@@ -16,13 +16,30 @@ class StrAnalyze:
                     # print('added to self files')
 
     def convert(self):
-        string_pattern = re.compile('([\/-])(\S)*\.(jpg|png|gif)')
         exclude_static = re.compile('static')
+        c = 0
         for file in self.files:
             with codecs.open(file, "r", "utf_8_sig") as f:
                 # Read in the file
                 # with open('file.txt', 'r') as file :
-                # filedata = file.readlines()
+                filedata = f.read()
+                string_pattern = r'([\/-]\S*\.[jpg|png|gif]{3})'
+                static_pattern = r'{%\s*static'
+                result = re.findall(string_pattern, filedata)
+                result_static = re.findall(static_pattern, filedata)
+                # replace = f"{{% static '{file_name}' %}}"
+                if result and not result_static:
+                    c+=1
+                    print('*******************************')
+                    print('FILE {}'.format(c), file)
+                    # print('FOUND', result.group())
+                    print('FOUND', result)
+                    for res in result:
+                        replacer = f"{{% static '{res[1:]}' %}}"
+                        print('found', res, 'replacing', replacer)
+                        filedata.replace(res, replacer)
+                        # with open()
+                    # print('*******************************')
 
                 # # Replace the target string
                 # filedata = filedata.replace('ram', 'abcd')
@@ -30,34 +47,34 @@ class StrAnalyze:
                 # # Write the file out again
                 # with open('file.txt', 'w') as file:
                 # file.write(filedata)
-                lines = f.readlines()
-                for line in lines:
+                # lines = f.readlines()
+                # for line in lines:
                     # print(line)
-                    if not exclude_static.search(line):
-                        if string_pattern.search(line):
+                    # if not exclude_static.search(line):
+                        # if string_pattern.search(line):
                         # print(line)
                         # file_name_pattern = re.compile('[\"\']([\/-])(\S).*\.(jpg|png|gif)[\"\']')
                         # file_name_pattern = re.compile('([\/-])(\S)*\.(jpg|png|gif)')
-                            try:
+                            # try:
                                 # print(exclude_static.search(line).group())
                                 # print(string_pattern.search(line).group())
-                                old_file_name = string_pattern.search(line).group()
-                                if old_file_name.startswith('/'):
-                                    new_file_name = old_file_name[1:]
-                                    print(new_file_name)
+                                # old_file_name = string_pattern.search(line).group()
+                                # if old_file_name.startswith('/'):
+                                    # new_file_name = old_file_name[1:]
+                                    # print(new_file_name)
                                     # line.replace(old_file_name, f"{{% static '{new_file_name}'}}")
-                                    print(old_file_name, f"{{% static '{new_file_name}' %}}")
-                                    line.replace(old_file_name, f"{{% static '{new_file_name}' %}}")
-                                else:
-                                    print(old_file_name, f"{{% static '{old_file_name}' %}}")
-                                    line.replace(old_file_name, f"{{% static '{old_file_name}' %}}")
+                                    # print(old_file_name, f"{{% static '{new_file_name}' %}}")
+                                    # line.replace(old_file_name, f"{{% static '{new_file_name}' %}}")
+                                # else:
+                                    # print(old_file_name, f"{{% static '{old_file_name}' %}}")
+                                    # line.replace(old_file_name, f"{{% static '{old_file_name}' %}}")
 
                                 # print(line)
                                 # image_file = file_name_pattern.search(line).group()
                                 # print('file:', image_file)
                                 # print('line:', line)
-                            except Exception as e:
-                                print('EXCEPTION', e)
+                            # except Exception as e:
+                                # print('EXCEPTION', e)
                             
                 # f.close()
                 # with open(file 'w') as file:
