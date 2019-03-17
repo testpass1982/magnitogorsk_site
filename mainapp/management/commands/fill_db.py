@@ -28,7 +28,8 @@ documents = [
     'media/document1.doc',
     'media/document2.doc',
     'media/document3.doc',
-    'media/document4.doc'
+    'media/document4.doc',
+    'media/document5.doc',
 ]
 
 menu_urls = [

@@ -50,6 +50,8 @@ class Category(models.Model):
 class ContentMixin(models.Model):
     '''base class for Post, Article and Documents'''
     title = models.CharField(u'Название', max_length=200)
+    url_code = models.CharField(u'Код ссылки', max_length=30, blank=True, default='НЕ УКАЗАН')
+
     short_description = models.CharField(
         u'Краткое описание', max_length=200, blank=True)
     tags = models.ManyToManyField(Tag, verbose_name='Тэги')

@@ -1,3 +1,4 @@
+{% load link_holders %}
 <!-- Меню -->
 <div class="container ">
   <div class="menu__background">
@@ -31,15 +32,15 @@
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Центр аттестации</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="komisiya.html#komisiya">Состав комисиии</a>
-                    <a class="dropdown-item" href="center.html">О центре</a>
+                    <a class="dropdown-item" href="{% link_holder 'SOSTAV_KOMISSII' %}">{% title_holder 'SOSTAV_KOMISSII' %}</a>
+                    <a class="dropdown-item" href="{% link_holder 'ABOUT' %}">{% title_holder 'ABOUT' %}</a>
                   </div>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Услуги</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="svarshik-specialist.html">Лаборатория разрушающего <br>
+                    <a class="dropdown-item" href="{% url 'lab' %}">Лаборатория разрушающего <br>
                         и неразрушающего контроля</a>
                     <a class="dropdown-item" href="svarshik.html#svarshik">Аттестация сварщиков и <br> специалистов сварочного производства</a>
                     <a class="dropdown-item" href="">Аттестация технологий сварки</a>

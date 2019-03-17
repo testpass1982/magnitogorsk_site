@@ -345,3 +345,15 @@ def reestrsp(request, param=None):
         content = None
 
     return render(request, 'mainapp/reestr-sasv.html', content)
+
+def lab(request):
+    content = {
+        'title': 'lab',
+    }
+    return render(request, 'mainapp/includes/laboratoriya.html', content)
+
+def attsv(request):
+    content = {
+        'title': 'attsv',
+    }
+    return render(request, 'mainapp/includes/svarshik-specialist.html', content)
