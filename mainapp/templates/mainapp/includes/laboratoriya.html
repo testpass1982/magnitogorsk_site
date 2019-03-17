@@ -1,6 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
-
+{% load link_holders %}
 {% block content %}
 
     <div class="container">
@@ -168,30 +168,7 @@
 
             <div class="col-xl-2">
 
-                <div class="sider__bar__service__pages">
-                    <p class="trebovanie__left__column">
-                        Требования к аттестации:
-                    </p>
-                    <a href="" class="trebovanie__list">
-                        <p>
-                            • ПБ 03-372-00</p>
-                    </a>
-
-                    <p class="right__column__header">
-                        Подать заявку на аттестацию:
-                    </p>
-                    <div class="list__service__column">
-                        <p class="small__column__text"><a href=""> Аттестация сварщиков
-                                и специалистов сварочного производства</a></p>
-                        <p class="small__column__text"><a href=""> Лаборатория разрушающего
-                                и неразрушающего контроля</a></p>
-                        <p class="small__column__text"><a href=""> Аттестация технологий
-                                сварки</a></p>
-                        <p class="small__column__text"><a href=""> Аттестация сварочного
-                                оборудования</a></p>
-                        <p class="small__column__text"><a href=""> Аттестация сварочных материалов</a></p>
-                    </div>
-                </div>
+               {% include 'mainapp/includes/side_panel_links.html' %} 
             </div>
 
         </div>

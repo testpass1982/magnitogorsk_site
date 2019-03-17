@@ -33,15 +33,10 @@ class StrAnalyze:
                         print('found', res, 'replacing', replacer)
                         new_file_data = re.sub(res, replacer, filedata)
                         filedata = new_file_data
-                    # print('filename', file)
-                    # print('splitting', file.split('.'))
-                    # print('new_filename', "_new.html".join(file.split('.html')))
                     with open("_new.html".join(file.split('.html')), 'w', newline='', encoding='utf8') as new_file:
                         new_file.write(new_file_data)
 
                 # # Replace the target string
-                # filedata = filedata.replace('ram', 'abcd')
-
                 # # Write the file out again
                 # with open('file.txt', 'w') as file:
                 # file.write(filedata)
@@ -73,8 +68,6 @@ class StrAnalyze:
                                 # print('line:', line)
                             # except Exception as e:
                                 # print('EXCEPTION', e)
-
-
 
 if __name__ == "__main__":
     analyze = StrAnalyze()

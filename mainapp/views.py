@@ -357,3 +357,15 @@ def attsv(request):
         'title': 'attsv',
     }
     return render(request, 'mainapp/includes/svarshik-specialist.html', content)
+
+def docs(request):
+    content = {
+        'title': 'docs',
+    }
+    return render(request, 'mainapp/doc_new.html', content)
+
+def reestr(request):
+    content = {
+        'title': 'reestr',
+    }
+    return render(request, 'mainapp/reestr.html', content)

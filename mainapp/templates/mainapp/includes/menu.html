@@ -42,26 +42,26 @@
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{% url 'lab' %}">Лаборатория разрушающего <br>
                         и неразрушающего контроля</a>
-                    <a class="dropdown-item" href="svarshik.html#svarshik">Аттестация сварщиков и <br> специалистов сварочного производства</a>
-                    <a class="dropdown-item" href="">Аттестация технологий сварки</a>
-                    <a class="dropdown-item" href="">Аттестация сварочных материалов</a>
-                    <a class="dropdown-item" href="">Аттестация сварочного оборудования</a>
+                    <a class="dropdown-item" href="{% url 'attsv' %}">Аттестация сварщиков и <br> специалистов сварочного производства</a>
+                    <a class="dropdown-item" href="{% link_holder 'ATTST' %}">Аттестация технологий сварки</a>
+                    <a class="dropdown-item" href="{% link_holder 'ATTSM' %}">{% title_holder 'ATTSM' %}</a>
+                    <a class="dropdown-item" href="{% link_holder 'ATTSO' %}">{% title_holder 'ATTSO' %}</a>
 
                   </div>
                 </li>
 
                 <li class="nav-item active">
-                  <a class="nav-link" href="doc.html#doc">Документы
+                  <a class="nav-link" href="{% url 'docs' %}">Документы
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="reestr.html#reestr">Реестр САСв
+                  <a class="nav-link" href="{% url 'reestr' %}">Реестр САСв
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="contacti.html">Контакты
+                  <a class="nav-link" href="{% url 'contact' %}">Контакты
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>

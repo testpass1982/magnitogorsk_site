@@ -1,0 +1,27 @@
+{% load link_holders %}
+<div class="sider__bar__service__pages">
+                    <p class="trebovanie__left__column">
+                        Требования к аттестации:
+                    </p>
+                    <a href="" class="trebovanie__list">
+                        <p>
+                            • ПБ 03-273-99</p>
+                    </a>
+                    <a href="" class="trebovanie__list">
+                        <p>
+                            • РД 03-495-02</p>
+                    </a>
+                    <p class="right__column__header">
+                        Подать заявку на аттестацию:
+                    </p>
+                    <div class="list__service__column">
+                        <p class="small__column__text"><a href="{% url 'attsv' %}"> Аттестация сварщиков
+                                и специалистов сварочного производства</a></p>
+                        <p class="small__column__text"><a href="{% url 'lab' %}"> Лаборатория разрушающего
+                                и неразрушающего контроля</a></p>
+                        <p class="small__column__text"><a href="{% link_holder 'ATTST' %}"> {% title_holder 'ATTST' %}</p>
+                        <p class="small__column__text"><a href="{% link_holder 'ATTSO' %}"> {% title_holder 'ATTSO' %}
+                        <p class="small__column__text"><a href="{% link_holder 'ATTSM' %}"> {% title_holder 'ATTSM' %}</a></p>
+
+                    </div>
+                </div>
