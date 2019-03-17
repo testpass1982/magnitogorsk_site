@@ -11,17 +11,12 @@ class StrAnalyze:
         for root, dirs, files in os.walk(".\mainapp"):
             for file in files:
                 if file.endswith(".html"):
-                    # print('found a file', os.path.join(root, file))
                     self.files.append(os.path.join(root, file))
-                    # print('added to self files')
 
     def convert(self):
-        exclude_static = re.compile('static')
         c = 0
         for file in self.files:
             with codecs.open(file, "r", "utf_8_sig") as f:
-                # Read in the file
-                # with open('file.txt', 'r') as file :
                 filedata = f.read()
                 string_pattern = r'([\/-]\S*\.[jpg|png|gif]{3})'
                 static_pattern = r'{%\s*static'
@@ -32,14 +27,17 @@ class StrAnalyze:
                     c+=1
                     print('*******************************')
                     print('FILE {}'.format(c), file)
-                    # print('FOUND', result.group())
                     print('FOUND', result)
                     for res in result:
                         replacer = f"{{% static '{res[1:]}' %}}"
                         print('found', res, 'replacing', replacer)
-                        filedata.replace(res, replacer)
-                        # with open()
-                    # print('*******************************')
+                        new_file_data = re.sub(res, replacer, filedata)
+                        filedata = new_file_data
+                    # print('filename', file)
+                    # print('splitting', file.split('.'))
+                    # print('new_filename', "_new.html".join(file.split('.html')))
+                    with open("_new.html".join(file.split('.html')), 'w', newline='', encoding='utf8') as new_file:
+                        new_file.write(new_file_data)
 
                 # # Replace the target string
                 # filedata = filedata.replace('ram', 'abcd')
@@ -75,10 +73,7 @@ class StrAnalyze:
                                 # print('line:', line)
                             # except Exception as e:
                                 # print('EXCEPTION', e)
-                            
-                # f.close()
-                # with open(file 'w') as file:
-                # file.write(filedata)
+
 
 
 if __name__ == "__main__":
