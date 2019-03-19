@@ -316,6 +316,7 @@ def reestrsp(request, param=None):
     list_of_records = result_to_page
 
     """import data from data-url using token"""
+    #TODO another issue creation test
     if request.GET.get('import'):
         accept = request.GET.get('import')
         if accept == 'Y':
