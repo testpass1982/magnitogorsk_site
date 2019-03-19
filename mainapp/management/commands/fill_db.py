@@ -1,12 +1,18 @@
+from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 from django.urls import reverse
 from django.core.files import File
 from mainapp.models import Menu, Post, Article, PostPhoto, Tag, Category
-from mainapp.models import Contact, Document
+from mainapp.models import Contact, Document, Profstandard
 from django.conf import settings
 from mixer.backend.django import mixer
 import random
 # from model_mommy.recipe import Recipe, foreign_key, seq
+
+try:
+    popov_user = User.objects.get(username='popov')
+except:
+    popov_user=User.objects.create(username='popov', email='popov@naks.ru', password='2011')
 
 images = [
     'media/01.JPG',
@@ -44,6 +50,26 @@ menu_urls_titles = [
     'Спецподготовка сварщиков', 'Все новости', 'Заявки', 'Состав комиссии',
 ]
 
+profstandards = [
+    {'title': 'Сварщик' , 'ps_code': '40.002', 'reg_number': '14', 'mintrud_reg': 'Приказ Минтруда России № 701н от 28.11.2013 г., зарегистрирован Минюстом России 13.02.2014г., рег. № 31301'},
+    {'title': 'Специалист сварочного производства' , 'ps_code': '40.002', 'reg_number': '15', 'mintrud_reg': 'Приказ Минтруда России № 701н от 28.11.2013 г., зарегистрирован Минюстом России 13.02.2014г., рег. № 31301'},
+    {'title': 'Контролер сварочных работ', 'ps_code': '40.002', 'reg_number': '16', 'mintrud_reg': 'Приказ Минтруда России № 701н от 28.11.2013 г., зарегистрирован Минюстом России 13.02.2014г., рег. № 31301'},
+    {'title': 'Специалист неразрушающего контроля', 'ps_code': '40.002', 'reg_number': '16', 'mintrud_reg': 'Приказ Минтруда России № 701н от 28.11.2013 г., зарегистрирован Минюстом России 13.02.2014г., рег. № 31301'},
+    {'title': 'Термист', 'ps_code': '40.002', 'reg_number': '16', 'mintrud_reg': 'Приказ Минтруда России № 701н от 28.11.2013 г., зарегистрирован Минюстом России 13.02.2014г., рег. № 31301'}
+]
+
+document_titles = [
+    'Постановление Госгортехнадзора России №36 от 25.06.2002г. Об утверждении \
+        новой редакции "Технологического регламента проведения аттестации \
+            сварщиков и специалистов сварочного производства"',
+    'ПБ-03-273-99 "Правила аттестации сварщиков и специалистов \
+        сварочного производства',
+    'Положение о порядке продления срока действия аттестационных удостоверений \
+        сварщиков и специалистов сварочного производства',
+    'Перечень групп технических устройств опасных производственных объектов',
+    'Инструкция по оформлению заявок на аттестацию заявителей - физических лиц',
+]
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
         #delete all Posts, Articles, Menus and other
@@ -67,11 +93,18 @@ class Command(BaseCommand):
             mixer.blend(PostPhoto,
                         image=File(open(images[i], 'rb')))
             #make Articles
-            mixer.blend(Article),
+            mixer.blend(Article, author=popov_user),
             mixer.blend(Contact)
+        for i in range(0, len(profstandards)):
+            mixer.blend(Profstandard, title=profstandards[i]['title'],
+                        reg_number=profstandards[i]['reg_number'],
+                        mintrud_reg=profstandards[i]['mintrud_reg'],
+                        ps_code=profstandards[i]['ps_code'],
+                        document=documents[i])
 
         for i in range(0, len(documents)):
-            mixer.blend(Document, document=File(open(documents[i], 'rb')))
+            mixer.blend(Document, document=File(open(documents[i], 'rb')),
+                        title=document_titles[i])
 
         #make Menus
         for i in range(0, len(menu_urls)):

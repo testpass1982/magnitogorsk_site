@@ -41,6 +41,7 @@ urlpatterns = [
     path('attsv/', mainapp.attsv, name="attsv"),
     path('docs/', mainapp.docs, name="docs"),
     path('reestr/', mainapp.reestr, name="reestr"),
+    path('profstandard/', mainapp.profstandard, name="profstandard"),
     path('about/', mainapp.about, name="about"),
     path('staff/', mainapp.staff, name='staff'),
     path('reestrsp/', mainapp.reestrsp, name='reestrsp'),

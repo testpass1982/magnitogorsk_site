@@ -1,4 +1,5 @@
 {% load static %}
+{% load link_holders %}
 <div class="box__content">
     <div class="container">
         <div class="row">
@@ -17,17 +18,17 @@
                     <div class="box__info__text__small">
                         <p class="info__text__small">
                             Аттестация сварщиков и специалистов сварочного производства согласно требованиям <br>
-                            <a href="">ПБ 03-273-99,</a>
-                            <a href="">РД 03-495-02;</a>
+                            <a href="{% doc_holder 'PB_273' %}">ПБ 03-273-99,</a>
+                            <a data-info="RD_495" href="{% doc_holder 'RD_495' %}">РД 03-495-02;</a>
                         </p>
                         <p class="info__text__small">
-                            Аттестация технологий сварки согласно требованиям <a href="">РД 03-615-03;</a>
+                            Аттестация технологий сварки согласно требованиям <a data-info="RD_615" href="{% doc_holder 'RD_615' %}">РД 03-615-03;</a>
                         </p>
                         <p class="info__text__small">
-                            Аттестация сварочных материалов согласно требованиям <a href="">РД 03-613-03;</a>
+                            Аттестация сварочных материалов согласно требованиям <a data-info="RD_613" href="{% doc_holder 'RD_613' %}">РД 03-613-03;</a>
                         </p>
                         <p class="info__text__small">
-                            Аттестация сварочного оборудования согласно требованиям <a href="">РД 03-614-03;</a>
+                            Аттестация сварочного оборудования согласно требованиям <a data-info="RD_614" href="{% doc_holder 'RD_495' %}">РД 03-614-03;</a>
                         </p>
                         <p class="info__text__small">
                             Услуги испытательной лаборатории неразрушающего и разрушающих методов контроля.
@@ -62,7 +63,7 @@
                         </p>
                     </main>
                     <div class="link__read__more">
-                        <a href="center.html" class="read__more__link">
+                        <a href="{% link_holder 'ABOUT' %}" class="read__more__link">
                             Подробнее об организации <img src="{% static 'img/arrow__next.png' %}" alt="">
                         </a>
                     </div>
@@ -83,7 +84,7 @@
                 <div class="header__name">
                     <p class="">Новости</p>
                     <div class="link__read__news">
-                        <a href="all-news.html" class="news__more__link">
+                        <a href="{% url 'news' %}" class="news__more__link">
                             Ко всем новостям <img src="{% static 'img/arrow__next.png' %}" alt="">
                         </a>
                     </div>

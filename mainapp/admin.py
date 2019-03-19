@@ -4,7 +4,7 @@ from django.utils.encoding import force_text
 from django.utils.html import format_html
 
 from .models import Post, Category, Tag, Document, PostPhoto, Article, Message, Contact
-from .models import Staff, Registry, Menu
+from .models import Staff, Registry, Menu, Profstandard
 
 # from .models import WeldData
 # from .domain_model import WeldOrg, Welder
@@ -137,6 +137,7 @@ admin.site.register(Category)
 admin.site.register(Contact)
 admin.site.register(Staff)
 admin.site.register(Registry)
+admin.site.register(Profstandard)
 # admin.site.register(Menu)
 # admin.site.register(WeldOrg)
 # admin.site.register(Welder)

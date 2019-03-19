@@ -4,7 +4,7 @@
   <div class="container">   
 
         <button class="back__to__main">
-                <a href="index.html"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center"
+                <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center"
                         alt=""> На главную</a>
             </button>
 
@@ -17,23 +17,20 @@
                             Выписказ из реестра САСв "Ростехнадзора" Персонал сварочного производства, аттестованного
                             в аттестационном центре <br>  ООО "НАКС Стандарт-Диагностик" (СУР - 22АЦ)
                         </p>
-                        <a href="http://www.naks.ru/aso/reestrattso/" target="_blank" class="reestr__link__naks text-align-middle">НАКС -
+                        <a href="http://www.naks.ru/assp/reestrperson/" target="_blank" class="reestr__link__naks text-align-middle">НАКС -
                             Реестр аттестаций</a>
                     </div>
                 </div>
                 <div class="line__text__one__reestr"></div>
                 <div class="row">
-        
                     <div class="col-xl-4">
                         <div class="box__search__subject__form">
                             <p class="header__text__search__subject">
                                 Поиск субъекта
                             </p>
                             <div class="form-row">
-        
                                 <label for="search__subject__restr">Ф.И.О</label>
                                 <input type="text" placeholder="Иван Иванов Иванович" class="form__subject__search" id="">
-        
                             </div>
                             <div class="form-row">
                                 <label for="search__work__subject">Место работы</label>
@@ -42,10 +39,8 @@
                                     Найти
                                 </button>
                             </div>
-        
                         </div>
                     </div>
-        
                 </div>
                 <div class="row">
                     <div class="col-xl-12">
@@ -65,7 +60,6 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-12 ">
-        
                                 <div class="accordion" id="accordionExample">
                                     <div class="card">
                                         <div class="card-header" data-toggle="collapse" data-target="#collapseOne" id="headingOne">
@@ -84,7 +78,6 @@
                                                 </div>
                                             </h5>
                                         </div>
-        
                                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <div class="col-sm-2 d-inline-block align-middle">
@@ -117,7 +110,6 @@
                                                 <div class="col-sm-2 d-inline-block align-middle">
                                                     <p class="subtitle__additional__information__list">СУР - 22АЦ</p>
                                                 </div>
-        
                                             </div>
                                         </div>
                                     </div>
@@ -140,7 +132,6 @@
                                                 </div>
                                             </h5>
                                         </div>
-        
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <div class="col-sm-2 d-inline-block align-middle">
@@ -174,7 +165,6 @@
                                                 <div class="col-sm-2 d-inline-block align-middle">
                                                     <p class="subtitle__additional__information__list">СУР - 22АЦ</p>
                                                 </div>
-        
                                             </div>
                                         </div>
                                     </div>
@@ -197,7 +187,6 @@
                                                 </div>
                                             </h5>
                                         </div>
-        
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <div class="col-sm-2 d-inline-block align-middle">
@@ -390,7 +379,7 @@
     <div class="line__otstup__inside__pages"></div>
  
     <button class="back__to__main">
-        <a href="index.html"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center"
+        <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center"
                 alt=""> На главную</a>
     </button>
     <div class="line__otstup__inside__pages"></div>

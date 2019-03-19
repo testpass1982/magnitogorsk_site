@@ -1,5 +1,5 @@
 from django import template
-from ..models import Menu, Post
+from ..models import Menu, Post, Document
 from django.urls import reverse
 # from django.shortcuts import get_object_or_404
 
@@ -22,4 +22,13 @@ def title_holder(url_code):
     except Post.DoesNotExist:
         title = 'Страница еще не создана ({})'.format(url_code)
     return title
+
+@register.simple_tag
+def doc_holder(url_code):
+    try:
+        doc = Document.objects.get(url_code=url_code)
+        url = doc.document.url
+    except Document.DoesNotExist:
+        url = '#'
+    return url
 

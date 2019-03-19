@@ -1,4 +1,5 @@
 {% load static %}
+{% load link_holders %}
 <div class="footer__block">
     <div class="container">
         <div class="row">
@@ -17,7 +18,7 @@
                 <a href="political.html" class="political__footer">Политика конфиденциальности</a>
                 <div class="line__footer__small"></div>
                 <div class="prava__footer">
-                    © 1994 - 2019 ООО АЦ «НАКС Стандарт-Диагностик». Все права защищены.
+                    © 1994 - 2019 ООО АЦ «НАКС Стандарт-Диагностика». Все права защищены.
                 </div>
 
             </div>
@@ -25,22 +26,22 @@
                 <p class="header__text__footer">Информация</p>
                 <div class="menu__footer">
                     <ul class="spisok__footer">
-                        <a href="center.html">
+                        <a href="{% link_holder 'ABOUT' %}">
                             <li>Центр аттестации</li>
                         </a>
-                        <a href="">
-                            <li>Услуги</li>
+                        <a href="{% link_holder 'SERVICES' %}">
+                            <li>{% title_holder 'SERVICES' %}</li>
                         </a>
-                        <a href="doc.html">
+                        <a href="{% url 'docs' %}">
                             <li>Документы</li>
                         </a>
-                        <a href="reestr.html">
+                        <a href="{% url 'reestr' %}">
                             <li>Реестр САСв</li>
                         </a>
-                        <a href="contacti.html">
+                        <a href="{% url 'contact' %}">
                             <li>Контакты</li>
                         </a>
-                        <a href="profstandarti.html">
+                        <a href="{% url 'profstandard' %}">
                             <li>Профстандарты в области сварки</li>
                         </a>
                     </ul>
@@ -123,7 +124,7 @@
                     </p>
                     <div class="mob__line__footer__small"></div>
                     <div class="mob__prava__footer">
-                        © 1994 - 2019 ООО АЦ «НАКС Стандарт-Диагностик». Все права защищены.
+                        © 1994 - 2019 ООО АЦ «НАКС Стандарт-Диагностика». Все права защищены.
                     </div>
 
                 </div>

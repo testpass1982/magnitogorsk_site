@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post, PostPhoto, Tag, Category, Document, Article, Message, Contact
-from .models import Staff, Registry
+from .models import Staff, Registry, Profstandard
 from .forms import PostForm, ArticleForm, DocumentForm
 from .forms import SendMessageForm, SubscribeForm, AskQuestionForm, SearchRegistryForm
 from django.contrib.auth.decorators import login_required
@@ -84,14 +84,15 @@ def news(request):
     all_news = Post.objects.all().filter(
         publish_on_news_page=True).order_by('-created_date')
     all_documents = Document.objects.all().order_by('-created_date')[:5]
-    post_list = [dict({'post': post, 'picture': PostPhoto.objects.filter(
-        post__pk=post.pk).first()}) for post in all_news]
+    # post_list = [dict({'post': post, 'picture': PostPhoto.objects.filter(
+    #     post__pk=post.pk).first()}) for post in all_news]
     # показываем несколько новостей на странице
+    post_list = Post.objects.all()[:6]
     paginator = Paginator(post_list, 5)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
 
-    articles = Article.objects.all().order_by('-created_date')[:3]
+    # articles = Article.objects.all().order_by('-created_date')[:3]
 
     print(request.resolver_match)
     print(request.resolver_match.url_name)
@@ -100,10 +101,10 @@ def news(request):
         'title': title,
         'news': posts,
         'documents': all_documents,
-        'bottom_related': articles
+        # 'bottom_related': articles
     }
 
-    return render(request, 'mainapp/news.html', content)
+    return render(request, 'mainapp/all-news.html', content)
 
 
 def details(request, pk=None, content=None):
@@ -313,7 +314,7 @@ def reestrsp(request, param=None):
         result_to_page.append(json.loads(result.params))
 
     list_of_records = result_to_page
-    
+
     """import data from data-url using token"""
     if request.GET.get('import'):
         accept = request.GET.get('import')
@@ -359,8 +360,11 @@ def attsv(request):
     return render(request, 'mainapp/includes/svarshik-specialist.html', content)
 
 def docs(request):
+    documents = Document.objects.all()
+
     content = {
         'title': 'docs',
+        'docs': documents,
     }
     return render(request, 'mainapp/doc_new.html', content)
 
@@ -369,3 +373,11 @@ def reestr(request):
         'title': 'reestr',
     }
     return render(request, 'mainapp/reestr.html', content)
+
+def profstandard(request):
+    profstandards = Profstandard.objects.all()
+    content = {
+        'title': 'profstandard',
+        'profstandards': profstandards,
+    }
+    return render(request, 'mainapp/profstandarti_new.html', content)

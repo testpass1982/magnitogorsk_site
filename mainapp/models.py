@@ -116,6 +116,7 @@ class Article(ContentMixin):
 
 class Document(models.Model):
     title = models.CharField(u'Название', max_length=500)
+    url_code = models.CharField(u'Код ссылки', max_length=30, blank=True, default='НЕ УКАЗАН')
     document = models.FileField(verbose_name='Документ',
                                 upload_to="documents/",
                                 validators=[FileExtensionValidator(
@@ -139,8 +140,14 @@ class Document(models.Model):
         verbose_name = "Документ"
         verbose_name_plural = "Документы"
 
-    def __str__(self):
-        return self.title
+class Profstandard(Document):
+    """subclass of document"""
+    ps_code = models.CharField(u'Информация о стандарте', blank=True, default='', max_length=20)
+    reg_number = models.CharField(u'Регистрационный номер', blank=True, default='', max_length=10)
+    mintrud_reg = models.CharField(u'Приказ минтруда (информация о регистрации)', max_length=100)
+    class Meta:
+        verbose_name = "Профстандарт"
+        verbose_name_plural = "Профстандарты"
 
 
 def upload_to(instance, filename):

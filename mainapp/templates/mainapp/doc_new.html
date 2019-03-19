@@ -1,10 +1,11 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
+{% load link_holders %}
 {% block content %}
   <div class="container">
 
     <button class="back__to__main">
-      <a href="index.html"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center" alt="">
+      <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center" alt="">
         На главную</a>
     </button>
 
@@ -14,93 +15,38 @@
         <div class="header__inside__pages">Документы</div>
       </div>
       <div class="col-xl-7">
-        <p class="header__doc">Список документов в области сварки: СУР - 22АЦ</p>
+        <p class="header__doc">Список документов СУР - 22АЦ</p>
         <p class="doc__name__list">Наименование документов</p>
-        <a href="" download="">
+        {% for doc in docs %}
+        <a href="{{ doc.document.url }}" download="">
           <div class="doc__content">
-            <p class="doc__name">РД 03-495-02 Технологический регламент проведения аттестации сварщиков и <br>
-              специалистов сварочного производства</p>
+            <p class="doc__name">{{ doc.title }}</p>
           </div>
         </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name">Постановление Госгортехнадзора России №36 от 25.06.2002г. Об утверждении новой
-              редакции "Технологического регламента проведения аттестации сварщиков и специалистов сварочного
-              производства"</p>
-          </div>
-        </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name">ПБ-03-273-99 "Правила аттестации сварщиков и <br> специалистов сварочного
-              производства"</p>
-          </div>
-        </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name" id="doc-zayavki">Положение о порядке продления срока действия аттестационных
-              удостоверений
-              сварщиков и специалистов сварочного производства</p>
-          </div>
-        </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name">Перечень групп технических устройств <br> опасных производственных объектов</p>
-          </div>
-        </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name">Инструкция по оформлению заявок на аттестацию <br> и результатов аттестации
-              Заявителей - физических лиц</p>
-          </div>
-        </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name">Требование к кандидатами <br>
-              на аттестацию</p>
-          </div>
-        </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name">Пример заявок <br> на аттестацию</p>
-          </div>
-        </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name">Необходимые документы <br> для заявки</p>
-          </div>
-        </a>
-        <a href="" download="">
-          <div class="doc__content">
-            <p class="doc__name ">Продление срока <br> аттестационных удостоверений</p>
-          </div>
-        </a>
-      </div>     
+        {% endfor %}
+      </div>
      <div class="col-xl-2">
         <div class="sider__bar">
             <p class="right__column__header">
-                Подать заявку на аттестацию:
+                Порядок оказания услуг по направлениям:
             </p>
          <div class="list__service__column">
-                <p class="small__column__text"><a href=""> Аттестация сварщиков
-                        и специалистов сварочного производства</a></p>
-                <p class="small__column__text"><a href=""> Лаборатория разрушающего 
+                <p class="small__column__text"><a href="{% link_holder 'ATTSP' %}"> {% title_holder 'ATTSP' %} </a></p>
+                <p class="small__column__text"><a href="{% url 'lab' %}"> Лаборатория разрушающего
                         и неразрушающего контроля</a></p>
-                <p class="small__column__text"><a href=""> Аттестация технологий 
-                        сварки</a></p>
-                <p class="small__column__text"><a href=""> Аттестация сварочного 
-                        оборудования</a></p>
-                <p class="small__column__text"><a href=""> Аттестация сварочных материалов</a></p>
-                
+                <p class="small__column__text"><a href="{% link_holder 'ATTST' %}"> {% title_holder 'ATTST' %} </a></p>
+                <p class="small__column__text"><a href="{% link_holder 'ATTSO' %}"> {% title_holder 'ATTSO' %} </a></p>
+                <p class="small__column__text"><a href="{% link_holder 'ATTSM' %}"> {% title_holder 'ATTSM' %} </a></p>
          </div>
         </div>
-    </div>      
+    </div>
     </div>
 
 
     <div class="line__otstup__inside__pages"></div>
 
     <button class="back__to__main">
-      <a href="index.html"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center" alt="">
+      <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center" alt="">
         На главную</a>
     </button>
     <div class="line__otstup__inside__pages"></div>
