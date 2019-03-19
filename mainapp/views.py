@@ -348,6 +348,7 @@ def reestrsp(request, param=None):
     return render(request, 'mainapp/reestr-sasv.html', content)
 
 def lab(request):
+    # @todo test issue creation
     content = {
         'title': 'lab',
     }
