@@ -30,38 +30,42 @@
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Центр аттестации</a>
+                    aria-haspopup="true" aria-expanded="false">О группе компаний</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% link_holder 'SOSTAV_KOMISSII' %}">{% title_holder 'SOSTAV_KOMISSII' %}</a>
-                    <a class="dropdown-item" href="{% link_holder 'ABOUT' %}">{% title_holder 'ABOUT' %}</a>
+                    <a class="dropdown-item" href="{% link_holder 'AC_STANDARD_DIAGNOSTIKA' %}">{% title_holder 'AC_STANDARD_DIAGNOSTIKA' %}</a>
+                    <a class="dropdown-item" href="{% link_holder 'ANO_DPO' %}">{% title_holder 'ANO_DPO' %}</a>
                   </div>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Услуги</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'lab' %}">Лаборатория разрушающего <br>
-                        и неразрушающего контроля</a>
                     <a class="dropdown-item" href="{% url 'attsv' %}">Аттестация сварщиков и <br> специалистов сварочного производства</a>
-                    <a class="dropdown-item" href="{% link_holder 'ATTST' %}">Аттестация технологий сварки</a>
+                    <a class="dropdown-item" href="{% url 'lab' %}#page-top">Лаборатория разрушающего <br>
+                        и неразрушающего контроля</a>
+                    <a class="dropdown-item" href="{% link_holder 'ATTST' %}">{% title_holder 'ATTST' %}</a>
                     <a class="dropdown-item" href="{% link_holder 'ATTSM' %}">{% title_holder 'ATTSM' %}</a>
                     <a class="dropdown-item" href="{% link_holder 'ATTSO' %}">{% title_holder 'ATTSO' %}</a>
-
+                    <a class="dropdown-item" href="{% link_holder 'UCHEBNIY_CENTR' %}">{% title_holder 'UCHEBNIY_CENTR' %}</a>
                   </div>
                 </li>
-
-                <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'docs' %}">Документы
-                    <span class="sr-only">(current)</span>
-                  </a>
+                <li class="nav-item dropdown">
+                  <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Документы</a>
+                  <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Документы ООО "НАКС Стандарт-Диагностика"</a>
+                    <a class="dropdown-item" href="#">Документы АНО ДПО "Стандарт-ДиагностикаЙ</a>
+                    <a class="dropdown-item" href="#">Документы лаборатории разрушающего <br>
+                        и неразрушающего контроля</a>
+                  </div>
                 </li>
-                <li class="nav-item active">
+                {% comment %} <li class="nav-item active">
                   <a class="nav-link" href="{% url 'reestr' %}">Реестр САСв
                     <span class="sr-only">(current)</span>
                   </a>
-                </li>
+                </li> {% endcomment %}
                 <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'contact' %}">Контакты
+                  <a class="nav-link" href="{% url 'contact' %}#page-top">Контакты
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
