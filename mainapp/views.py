@@ -363,7 +363,7 @@ def attsv(request):
 def docs(request):
     """view for documents page"""
 
-    doctypes = ['СУР-22АЦ', 'АЦСМ-62', 'АЦСО-114', 'АЦСТ-132', 'АНО ДПО']
+    doctypes = ['СУР-22АЦ', 'АЦСМ-62', 'АЦСО-114', 'АЦСТ-132', 'АНО ДПО', 'ЛАБ-РК-НК']
     other_tags = Tag.objects.exclude(name__in=doctypes)
     # print(other_tags)
     sur_22_list = Document.objects.filter(
@@ -376,8 +376,8 @@ def docs(request):
         tags__in=Tag.objects.filter(name='АЦСТ-132'))
     ano_dpo_list = Document.objects.filter(
         tags__in=Tag.objects.filter(name='АНО ДПО'))
-    # docs = sur_22_list + acsm_62_list + acso_114_list + acst_132_list + ano_dpo_list
-    # print(docs)
+    lab_list = Document.objects.filter(
+        tags__in=Tag.objects.filter(name='ЛАБ-РК-НК'))
     other_docs = Document.objects.filter(tags__in=other_tags)
 
     content = {
@@ -386,6 +386,7 @@ def docs(request):
         'acso_114_list': acso_114_list,
         'acst_132_list': acst_132_list,
         'ano_dpo_list': ano_dpo_list,
+        'lab_list': lab_list,
         'other_docs': other_docs,
     }
     return render(request, 'mainapp/doc_new.html', content)
