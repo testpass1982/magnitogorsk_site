@@ -86,7 +86,7 @@ window.onload = function () {
       }, options);
 
       var uploadId = 1;
-      //update the messaging 
+      //update the messaging
       $('.file-uploader__message-area p').text(options.MessageAreaText || settings.MessageAreaText);
 
       //create and add the file list and the hidden input list
@@ -108,7 +108,7 @@ window.onload = function () {
         var check = checkFile(fileName);
         if (check === "valid") {
 
-          // move the 'real' one to hidden list 
+          // move the 'real' one to hidden list
           $('.hidden-inputs').append($('.file-chooser__input'));
 
           //insert a clone after the hiddens (copy the event handlers too)
@@ -128,7 +128,7 @@ window.onload = function () {
             //remove the name from file-list that corresponds to the button clicked
             $(this).parent().hide("puff").delay(10).queue(function () { $(this).remove(); });
 
-            //if the list is now empty, change the text back 
+            //if the list is now empty, change the text back
             if ($('.file-list li').length === 0) {
               $('.file-uploader__message-area').text(options.MessageAreaText || settings.MessageAreaText);
             }
@@ -176,12 +176,16 @@ window.onload = function () {
     };
   }(jQuery));
 
-  //init 
+  //init
   $(document).ready(function () {
     $('.fileUploader').uploader({
       MessageAreaText: "Прикрепить файлы"
     });
   });
-  
-
+  $('.sub-dropdown-right a:not(.dropdown-item)').click(function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    let subMenu = $(event.target).find('.sub-dropdown-menu');
+    $(subMenu).toggle();
+  });
 };

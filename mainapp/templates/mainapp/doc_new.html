@@ -11,13 +11,15 @@
 
 
     <div class="row">
+
       <div class="col-xl-2">
         <div class="header__inside__pages">Документы</div>
       </div>
       <div class="col-xl-7">
+             <div class="col-12">
         <p class="header__doc">Список документов СУР - 22АЦ</p>
         <p class="doc__name__list">Наименование документов</p>
-        {% for doc in docs %}
+        {% for doc in sur_22ac_list %}
         <a href="{{ doc.document.url }}" download="">
           <div class="doc__content">
             <p class="doc__name">{{ doc.title }}</p>
@@ -25,8 +27,66 @@
         </a>
         {% endfor %}
       </div>
-     <div class="col-xl-2">
-        <div class="sider__bar">
+      <div class="col-12">
+        <p class="header__doc">Список документов АЦСМ-62</p>
+        <p class="doc__name__list">Наименование документов</p>
+        {% for doc in acsm_62_list %}
+        <a href="{{ doc.document.url }}" download="">
+          <div class="doc__content">
+            <p class="doc__name">{{ doc.title }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="col-12">
+        <p class="header__doc">Список документов АЦСО-114</p>
+        <p class="doc__name__list">Наименование документов</p>
+        {% for doc in acso_114_list %}
+        <a href="{{ doc.document.url }}" download="">
+          <div class="doc__content">
+            <p class="doc__name">{{ doc.title }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="col-12">
+        <p class="header__doc">Список документов АЦСТ-132</p>
+        <p class="doc__name__list">Наименование документов</p>
+        {% for doc in acst_132_list %}
+        <a href="{{ doc.document.url }}" download="">
+          <div class="doc__content">
+            <p class="doc__name">{{ doc.title }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="col-12">
+        <p class="header__doc">Список документов АНО ДПО "Стандарт-Диагностика"</p>
+        <p class="doc__name__list">Наименование документов</p>
+        {% for doc in ano_dpo_list %}
+        <a href="{{ doc.document.url }}" download="">
+          <div class="doc__content">
+            <p class="doc__name">{{ doc.title }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      {% if other_docs %}
+      <div class="col-12">
+        <p class="header__doc">Другие документы</p>
+        <p class="doc__name__list">Наименование документов</p>
+        {% for doc in other_docs %}
+        <a href="{{ doc.document.url }}" download="">
+          <div class="doc__content">
+            <p class="doc__name">{{ doc.title }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      </div>
+      <div class="col-xl-3">
+            <div class="sider__bar">
             <p class="right__column__header">
                 Порядок оказания услуг по направлениям:
             </p>
@@ -39,6 +99,7 @@
                 <p class="small__column__text"><a href="{% link_holder 'ATTSM' %}"> {% title_holder 'ATTSM' %} </a></p>
          </div>
         </div>
+      </div>
     </div>
     </div>
 

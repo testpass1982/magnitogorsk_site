@@ -2,3 +2,35 @@
 @import "_menu__burger.scss";
 @import "_modal__window.scss";
 @import "_reestr.scss";
+
+// .dropdown-item {
+//     white-space: normal;
+// }
+
+.sub-dropdown-right:active, .sub-dropdown-right:focus, .sub-dropdown-right:hover > .sub-dropdown-menu {
+    display: block;
+}
+
+.sub-dropdown-menu {
+    @media screen and (max-width: 600px) {
+        max-width: 90%;
+    }
+}
+.sub-dropdown-right {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 0.8rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    line-height: 40px;
+    &:hover {
+        color: #16181b;
+        text-decoration: none;
+        background-color: #f8f9fa;
+    }
+}

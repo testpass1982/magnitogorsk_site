@@ -126,7 +126,14 @@ class Document(models.Model):
                                         PDF, DOCX, DOC, JPG, JPEG")])
     uploaded_at = models.DateTimeField(
         verbose_name='Загружен', default=timezone.now)
-    tags = models.ManyToManyField(Tag, verbose_name='Тэги', blank=True)
+    tags = models.ManyToManyField(Tag, verbose_name='Тэги', blank=True, help_text="\
+                        Тэгами осуществляется управление страницей 'Документы'<br>\
+                        Для отображения документов в разделе СУР-22АЦ используйте тег 'СУР-22АЦ'<br>\
+                        Для отображения документов в разделе АЦСМ-62 используйте тег 'АЦСМ-62'<br>\
+                        Для отображения документов в разделе АЦСО-114 используйте тег 'АЦСО-114'<br>\
+                        Для отображения документов в разделе АЦСТ-132 используйте тег 'АЦСТ-132'<br>\
+                        Для отображения документов в разделе АНО ДПО 'Стандарт-Диагностика' используйте тег 'АНО ДПО'<br>\
+                        ")
     created_date = models.DateTimeField(
         default=timezone.now, verbose_name='Дата создания')
     post = models.ForeignKey(Post, verbose_name='Страница',

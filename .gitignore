@@ -87,12 +87,12 @@ local_settings.py
 
 .env
 db.sqlite3
-*.jpg
-*.pdf
-*.jpeg
-*.doc
-*.docx
-*.png
+#*.jpg
+#*.pdf
+#*.jpeg
+#*.doc
+#*.docx
+#*.png
 **/migrations/**
 media/*
 log/**
