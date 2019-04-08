@@ -2,21 +2,22 @@
 {% load static %}
 {% load link_holders %}
 {% block content %}
-  <div class="container">
+<div class="container">
 
-    <button class="back__to__main">
-      <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center" alt="">
-        На главную</a>
-    </button>
+  <button class="back__to__main">
+    <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+        class="arrow__back__to__main text-align-center" alt="">
+      На главную</a>
+  </button>
 
 
-    <div class="row">
+  <div class="row">
 
-      <div class="col-xl-2">
-        <div class="header__inside__pages">Документы</div>
-      </div>
-      <div class="col-xl-7">
-             <div class="col-12">
+    <div class="col-xl-2">
+      <div class="header__inside__pages">Документы</div>
+    </div>
+    <div class="col-xl-7">
+      <div class="col-12">
         <p class="header__doc" id="ac_stdiag">Список документов СУР - 22АЦ</p>
         <p class="doc__name__list">Наименование документов</p>
         {% for doc in sur_22ac_list %}
@@ -95,32 +96,44 @@
         {% endfor %}
       </div>
       {% endif %}
-      </div>
-      <div class="col-xl-3">
-            <div class="sider__bar">
-            <p class="right__column__header">
-                Порядок оказания услуг по направлениям:
-            </p>
-         <div class="list__service__column">
-                <p class="small__column__text"><a href="{% link_holder 'ATTSP' %}"> {% title_holder 'ATTSP' %} </a></p>
-                <p class="small__column__text"><a href="{% url 'lab' %}"> Лаборатория разрушающего
-                        и неразрушающего контроля</a></p>
-                <p class="small__column__text"><a href="{% link_holder 'ATTST' %}"> {% title_holder 'ATTST' %} </a></p>
-                <p class="small__column__text"><a href="{% link_holder 'ATTSO' %}"> {% title_holder 'ATTSO' %} </a></p>
-                <p class="small__column__text"><a href="{% link_holder 'ATTSM' %}"> {% title_holder 'ATTSM' %} </a></p>
-         </div>
+    </div>
+    <div class="col-xl-3">
+      <div class="sider__bar">
+        <p class="right__column__header">
+          Услуги группы компаний "Стандарт-Диагностика":
+        </p>
+        <div class="list__service__column">
+          <p class="small__column__text">
+            <a href="{% url 'attsv' %}">Аттестация сварщиков и <br> специалистов
+              сварочного производства</a>
+          </p>
+          <p class="small__column__text">
+            <a href="{% url 'lab' %}"> Лаборатория разрушающего и неразрушающего контроля</a>
+          </p>
+          <p class="small__column__text">
+            <a href="{% link_holder 'ATTST' %}"> {% title_holder 'ATTST' %} </a>
+          </p>
+          <p class="small__column__text">
+            <a href="{% link_holder 'ATTSO' %}"> {% title_holder 'ATTSO' %} </a>
+          </p>
+          <p class="small__column__text">
+            <a href="{% link_holder 'ATTSM' %}"> {% title_holder 'ATTSM' %} </a>
+          </p>
+          <p class="small__column__text">
+            <a href="{% link_holder 'UCHEBNIY_CENTR' %}">{% title_holder 'UCHEBNIY_CENTR' %}</a>
+          </p>
         </div>
       </div>
-    </div>
     </div>
 
 
     <div class="line__otstup__inside__pages"></div>
 
     <button class="back__to__main">
-      <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}" class="arrow__back__to__main text-align-center" alt="">
+      <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+          class="arrow__back__to__main text-align-center" alt="">
         На главную</a>
     </button>
     <div class="line__otstup__inside__pages"></div>
   </div>
-{% endblock content %}
+  {% endblock content %}
