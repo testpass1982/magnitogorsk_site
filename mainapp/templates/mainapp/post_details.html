@@ -56,8 +56,8 @@
                         {{ post.text|safe}}
                     </p>
                     <div class="line__news__end"></div>
-                    <p class="prikrep__doc">Прикрепленные файлы:</p>
                     {% if documents %}
+                    <p class="prikrep__doc">Прикрепленные файлы:</p>
                     {% for document in documents %}
                     <button class="soglashenie__button">
                         <a href="{{ document.document.url }}" class="soglashenie__button__text" target="_blank">
@@ -68,72 +68,46 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+
+{% if other_posts %}
     <div class="row">
         <div class="col-xl-2">
         </div>
         <div class="col-xl-4">
             <p class="header__all__news">
-                Может быть полезным:
+                Другие новости:
             </p>
         </div>
     </div>
     <div class="row">
         <div class="col-xl-2"></div>
-        <div class="col-xl-4">
-            <div class="block__news">
-                <a href="{% url 'detailview' 'post' bottom_related.0.pk %}#page-top" class="link__news">
-                    <div class="box__news">
-                        <p class="data__news__main">{{ bottom_related.0.published_date }}</p>
-                        <p class="box__news__text">
-                            {{ bottom_related.0.title }}</p>
+        <div class="col-xl-8">
+            <div class="row">
+
+                {% for post in other_posts %}
+                <div class="col-xl-6">
+                    <div class="block__news">
+                        <a href="{% url 'detailview' 'news_post' post.pk %}#page-top" class="link__news">
+                            <div class="box__news">
+                                <p class="data__news__main">{{ post.published_date }}</p>
+                                <p class="box__news__text">
+                                    {{ post.title }}</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                </div>
+                {% endfor %}
+
             </div>
-            <div class="line__otstup__inside__pages"></div>
-            <div class="block__news">
-                <a href="{% url 'detailview' 'post' bottom_related.1.pk %}#page-top" class="link__news">
-                    <div class="box__news">
-                        <p class="data__news__main">{{ bottom_related.1.published_date }}</p>
-                        <p class="box__news__text">
-                            {{ bottom_related.1.title }} </p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-xl-4">
-            <div class="block__news">
-                <a href="{% url 'detailview' 'post' bottom_related.2.pk %}#page-top" class="link__news">
-                    <div class="box__news">
-                        <p class="data__news__main">{{ bottom_related.2.published_date }}</p>
-                        <p class="box__news__text">
-                            {{ bottom_related.2.title }}</p>
-                    </div>
-                </a>
-            </div>
-            <div class="line__otstup__inside__pages"></div>
-            <div class="block__news">
-                <a href="{% url 'detailview' 'post' bottom_related.3.pk %}#page-top" class="link__news">
-                    <div class="box__news">
-                        <p class="data__news__main">{{ bottom_related.3.published_date }}</p>
-                        <p class="box__news__text">
-                            {{ bottom_related.2.title }}</p>
-                    </div>
-                </a>
-            </div>
-            <div class="link__read__news__inside">
-                <a href="{% url 'main' %}" class="news__more__link">
-                    Ко всем новостям <img src="{% static 'img/arrow__next.png' %}" alt="">
-                </a>
-            </div>
+            {% comment %} <div class="line__otstup__inside__pages"></div> {% endcomment %}
 
         </div>
 
 
 
     </div>
+{% endif %}
 
 
     <div class="line__otstup__inside__pages"></div>

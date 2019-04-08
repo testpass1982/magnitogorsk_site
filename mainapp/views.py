@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post, PostPhoto, Tag, Category, Document, Article, Message, Contact
-from .models import Staff, Registry, Profstandard
+from .models import Staff, Registry, Profstandard, NewsPost
 from .forms import PostForm, ArticleForm, DocumentForm
 from .forms import SendMessageForm, SubscribeForm, AskQuestionForm, SearchRegistryForm
 from django.contrib.auth.decorators import login_required
@@ -49,8 +49,7 @@ def main(request):
     # docs = Document.objects.filter(
     #     publish_on_main_page=True).order_by('-created_date')[:3]
 
-    posts = Post.objects.filter(
-        publish_on_main_page=True).order_by('-published_date')[:4]
+    posts = NewsPost.objects.all().order_by('-published_date')[:4]
 
     # posts = {}
     # for post in main_page_news:
@@ -62,8 +61,8 @@ def main(request):
     # print(request.resolver_match)
     # print(request.resolver_match.url_name)
 
-    for post in posts:
-        print(post)
+    # for post in posts:
+    #     print(post)
 
     content = {
         'title': title,
@@ -81,14 +80,13 @@ def main(request):
 def news(request):
     """this is the news view"""
     title = "Новости АЦ"
-    all_news = Post.objects.all().filter(
-        publish_on_news_page=True).order_by('-created_date')
-    all_documents = Document.objects.all().order_by('-created_date')[:5]
+    post_list = NewsPost.objects.all().order_by('-created_date')
+    # all_documents = Document.objects.all().order_by('-created_date')[:5]
     # post_list = [dict({'post': post, 'picture': PostPhoto.objects.filter(
     #     post__pk=post.pk).first()}) for post in all_news]
     # показываем несколько новостей на странице
-    post_list = Post.objects.all()[:6]
-    paginator = Paginator(post_list, 5)
+    # post_list = NewsPost.objects.all()[:6]
+    paginator = Paginator(post_list, 6)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
 
@@ -100,14 +98,14 @@ def news(request):
     content = {
         'title': title,
         'news': posts,
-        'documents': all_documents,
+        # 'documents': all_documents,
         # 'bottom_related': articles
     }
 
     return render(request, 'mainapp/all-news.html', content)
 
 
-def details(request, pk=None, content=None):
+def details(request, content=None, pk=None):
 
     return_link = HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
@@ -117,7 +115,8 @@ def details(request, pk=None, content=None):
 
     content_select = {
         'post': Post,
-        'article': Article
+        'article': Article,
+        'news_post': NewsPost
     }
     obj = get_object_or_404(content_select[content], pk=pk)
     print(obj)
@@ -131,6 +130,11 @@ def details(request, pk=None, content=None):
             'documents': attached_documents,
             'bottom_related': Post.objects.all().exclude(pk=pk).order_by(
                 '-created_date')[:4]
+        }
+    if content == 'news_post':
+        post_content = {
+            'post': obj,
+            'other_posts': NewsPost.objects.all().exclude(pk=pk).order_by('-created_date')[:4]
         }
     if content == 'article':
         tags_pk_list = [tag.pk for tag in obj.tags.all()]

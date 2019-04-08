@@ -95,6 +95,24 @@ class Post(ContentMixin):
     def __str__(self):
         return self.title
 
+class NewsPost(models.Model):
+    '''base class for Post, Article and Documents'''
+    title = models.CharField(u'Название', max_length=200)
+    short_description = models.CharField(
+        u'Краткое описание', max_length=200, blank=True)
+    published_date = models.DateTimeField(
+        u'Дата публикации', blank=True, null=True)
+    created_date = models.DateTimeField(u'Дата создания', default=timezone.now)
+    text = RichTextUploadingField(verbose_name='Текст')
+    author = models.ForeignKey(
+        'auth.User', verbose_name='Автор', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+
+    def __str__(self):
+        return '{} - дата создания {}'.format(self.title, self.created_date)
 
 class Article(ContentMixin):
     '''child of ContentMixin'''
