@@ -43,8 +43,13 @@ urlpatterns = [
     path('reestr/', mainapp.reestr, name="reestr"),
     path('profstandard/', mainapp.profstandard, name="profstandard"),
     path('about/', mainapp.about, name="about"),
+    path('political/', mainapp.political, name="political"),
     path('staff/', mainapp.staff, name='staff'),
     path('reestrsp/', mainapp.reestrsp, name='reestrsp'),
+    path('orgstruktura/', mainapp.orgstruktura, name='orgstruktura'),
+    path('acst/', mainapp.acst, name='acst'),
+    path('acsm/', mainapp.acsm, name='acsm'),
+    path('acsp/', mainapp.acsp, name='acsp'),
     # path('new_weld_data/', domain.CreateViewMetaclass.as_view(), name='new_data'),
     # path('weld_data_list/', domain.WeldListView.as_view(), name='weld_data_list')
 ]

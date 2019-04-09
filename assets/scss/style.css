@@ -1,11 +1,13 @@
 @charset "UTF-8";
-body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height: 1.5; background-color: #fff; opacity: 0; transition: .4s; }
+body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height: 1.5; background-color: #fff; }
 
 @media (min-width: 360px) { .container { max-width: 1550px; } }
 
+.box_content_page { padding: 45px 0px 45px; }
+
 .line__otstup__inside__pages { margin-top: 35px; margin-bottom: 35px; }
 
-.back__to__main { border: none; background: transparent; font-size: 14px; padding: 0px; }
+.back__to__main { border: none; background: transparent; font-size: 14px; padding: 0px; margin-top: 15px; margin-bottom: 15px; }
 
 .back__to__main a { text-decoration: none; color: #007bff; }
 
@@ -13,7 +15,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .sider__bar { position: sticky; top: 4rem; z-index: 1000; height: calc(45vh); }
 
-@media screen and (max-width: 576px) { .box__items { vertical-align: middle; text-align: center; } }
+@media screen and (max-width: 576px) { .box__items { text-align: center; } }
 
 .header__logo { padding: 35px 0px 45px; }
 
@@ -52,15 +54,15 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 576px) { .click__on__map { font-size: 18px; margin-top: 15px; } }
 
-.sasp__logo::before { content: ''; position: absolute; width: 85px; height: 45px; left: 0; margin-top: 20px; background: url("../img/logo__sasp.png") center 0 no-repeat; }
+.sasp_header_logo { text-align: right; }
 
-@media screen and (max-width: 576px) { .sasp__logo::before { display: none; } }
+@media screen and (max-width: 576px) { .sasp_header_logo { display: none; } }
 
 .mob__logo__sasp { margin-bottom: 5px; }
 
 .mob__sasp { display: none; font-size: 14px; }
 
-@media screen and (max-width: 576px) { .mob__sasp { display: block; } }
+@media screen and (max-width: 576px) { .mob__sasp { display: block; margin-top: 15px; } }
 
 .sasp__text { margin-left: 80px; color: #002D41; font-weight: 450; }
 
@@ -82,29 +84,29 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .bg__gradient { background: url(../img/gradient.png) no-repeat; background-size: cover; color: #fff; width: 100%; padding: 45px 0px; }
 
-.bg__text__head { font-size: 36px; font-weight: 550; color: #000; vertical-align: middle; text-align: center; }
+.bg__text__head { font-size: 36px; font-weight: 550; color: #000; text-align: center; }
 
-.bg__text__small { font-size: 18px; font-weight: 450; color: #000; vertical-align: middle; text-align: center; line-height: 1.8; }
+.bg__text__small { font-size: 18px; font-weight: 450; color: #000; text-align: center; line-height: 1.8; }
 
 @media screen and (max-width: 320px) { .bg__text__small { font-size: 14px; } }
 
-.bg__text__naks { font-size: 16px; font-weight: 500; color: #000; vertical-align: middle; text-align: center; color: #000000; }
+.bg__text__naks { font-size: 16px; font-weight: 500; color: #000; text-align: center; color: #000000; }
 
-.bg__line { border-bottom: 1px solid #3eb5f1; width: 50px; vertical-align: middle; text-align: center; margin: auto; margin-bottom: 15px; margin-top: 15px; }
+.bg__line { border-bottom: 1px solid #005bbb; width: 50px; text-align: center; margin: auto; margin-bottom: 15px; margin-top: 15px; }
 
-.online__zayavka__button { vertical-align: middle; text-align: center; margin-top: 15px; }
+.online__zayavka__button { text-align: center; margin-top: 15px; }
 
-.button__zayavka { background-color: #3eb5f1; border: none; border-radius: 3px; color: #fff; font-weight: 400; padding: 10px 25px; font-size: 18px; cursor: pointer; }
+.button__zayavka { background-color: #005bbb; border: none; border-radius: 3px; color: #fff; font-weight: 400; padding: 10px 25px; font-size: 18px; cursor: pointer; }
 
-.button__zayavka:hover { background-color: #35a9e4; transition: 0.2s; }
+.button__zayavka:hover { background-color: #046edf; transition: 0.2s; }
 
-.button__zayavka:active { background-color: #2891c5; transition: 0.2s; }
+.button__zayavka:active { background-color: #014fa1; transition: 0.2s; }
 
 .button__zayavka:focus { outline: none; box-shadow: none; }
 
 .naks__web a { text-decoration: none; color: #0173c1; }
 
-.naks__web a:hover { color: #0087e0; }
+.naks__web a:hover { color: #005bbb; }
 
 .naks__web { text-align: center; font-size: 14px; font-weight: 500; margin-bottom: 10px; }
 
@@ -134,7 +136,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 576px) { .box__service { width: 100%; } }
 
-.box__service:hover { background-color: #fcfcfc; transition: 0.2s; margin-left: 10px; border-left: 1px solid #2785ff; }
+.box__service:hover { background-color: #fcfcfc; transition: 0.2s; margin-left: 10px; border-left: 1px solid #046edf; }
 
 .services__name { font-size: 18px; font-weight: 500; color: #000; text-decoration: none; margin: 0; }
 
@@ -146,7 +148,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .box__news { border: 1px solid #eeeeee; padding: 25px; }
 
-.box__news:hover { box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03); border: 1px solid #c5deff; }
+.box__news:hover { box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03); border: 1px solid #046edf; }
 
 .data__news__main { text-transform: uppercase; color: #a8a8a8; text-decoration: none; }
 
@@ -192,7 +194,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .mob__version { display: none; }
 
-@media screen and (max-width: 320px) { .mob__version { display: block; } }
+@media screen and (max-width: 760px) { .mob__version { margin-top: 25px; display: block; } }
 
 .mob__sasp__grey__logo::before { content: ''; position: absolute; width: 85px; height: 45px; background: url("../img/logo__sasp_grey.png") center 0 no-repeat; margin-left: -5px; }
 
@@ -212,6 +214,8 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .mob__razrabotano { font-size: 12px; font-weight: 350; color: #c2c2c2; margin-top: 10px; }
 
+.description { margin-bottom: 25px; }
+
 .web__spks__footer a { text-decoration: none; color: #696969; }
 
 .web__spks__footer a:hover { color: #8d8d8d; }
@@ -230,27 +234,29 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 320px) { .footer__block { padding: 15px; } }
 
-.footer__logo { margin-bottom: 25px; }
+.logo_ac_footer { margin-bottom: 25px; }
+
+@media screen and (max-width: 320px) { .logo_ac_footer { margin-top: 25px; } }
 
 .sasp__grey__logo::before { content: ''; position: absolute; width: 85px; height: 45px; background: url("../img/logo__sasp_grey.png") center 0 no-repeat; margin-left: -5px; }
 
-@media screen and (max-width: 320px) { .sasp__grey__logo::before { display: none; } }
+@media screen and (max-width: 760px) { .sasp__grey__logo::before { display: none; } }
 
 .sasp__grey__text { font-size: 12px; color: #979695; margin-top: 55px; margin-bottom: 45px; }
 
-@media screen and (max-width: 320px) { .sasp__grey__text { display: none; } }
+@media screen and (max-width: 760px) { .sasp__grey__text { display: none; } }
 
 .political__footer { color: #000; }
 
-@media screen and (max-width: 320px) { .political__footer { display: none; } }
+@media screen and (max-width: 760px) { .political__footer { display: none; } }
 
 .line__footer__small { border: 1px solid #e8e8e8; width: 50px; margin-top: 20px; margin-bottom: 15px; }
 
-@media screen and (max-width: 320px) { .line__footer__small { display: none; } }
+@media screen and (max-width: 760px) { .line__footer__small { display: none; } }
 
 .prava__footer { font-size: 12px; color: #9c9c9c; }
 
-@media screen and (max-width: 320px) { .prava__footer { display: none; } }
+@media screen and (max-width: 760px) { .prava__footer { display: none; } }
 
 .header__text__footer { font-size: 14px; text-transform: uppercase; color: #4f72ac; margin-bottom: 10px; }
 
@@ -261,14 +267,6 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 .spisok__footer li { list-style: none; color: #000; }
 
 .spks__link__footer a { text-decoration: none; padding: 0; margin: 0; }
-
-.spks::before { content: ''; position: absolute; width: 85px; height: 45px; background: url("../img/spks_logo.png") center 0 no-repeat; margin-left: -20px; }
-
-@media screen and (max-width: 320px) { .spks::before { display: none; } }
-
-.spks__text { font-size: 14px; text-transform: uppercase; color: #000; margin-left: 65px; font-weight: 500; margin-bottom: 0; text-decoration: none; }
-
-@media screen and (max-width: 320px) { .spks__text { display: none; } }
 
 .number__footer { font-size: 28px; font-weight: 300; margin-bottom: 0; }
 
@@ -305,7 +303,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .doc__content { margin-top: 25px; margin-bottom: 25px; background-color: #ffffff; padding: 25px; border-radius: 3px; border-left: 1px solid #c5deff; box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03); }
 
-.doc__content:hover { background-color: #f5f5f5; transition: 0.2s; border-left: 1px solid #2785ff; }
+.doc__content:hover { background-color: #f5f5f5; transition: 0.2s; border-left: 1px solid #046edf; }
 
 .doc__name { position: relative; font-size: 15px; color: #275295; padding-left: 55px; margin-bottom: 0; }
 
@@ -375,11 +373,11 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .sider__bar__service__pages { position: sticky; top: 4rem; z-index: 1000; height: calc(55vh); }
 
-.button__zayavka__inside__pages { background-color: #3eb5f1; border: none; border-radius: 3px; color: #fff; font-weight: 400; padding: 10px 25px; font-size: 18px; margin-top: 10px; margin-bottom: 15px; cursor: pointer; }
+.button__zayavka__inside__pages { background-color: #005bbb; border: none; border-radius: 3px; color: #fff; font-weight: 400; padding: 10px 25px; font-size: 18px; margin-top: 10px; margin-bottom: 15px; cursor: pointer; }
 
-.button__zayavka__inside__pages:hover { background-color: #35a9e4; transition: 0.2s; }
+.button__zayavka__inside__pages:hover { background-color: #046edf; transition: 0.2s; }
 
-.button__zayavka__inside__pages:active { background-color: #2891c5; transition: 0.2s; }
+.button__zayavka__inside__pages:active { background-color: #024ea0; transition: 0.2s; }
 
 .button__zayavka__inside__pages:focus { outline: none; box-shadow: none; }
 
@@ -388,60 +386,6 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 .list__item__text__laboratoriya { font-size: 16px; line-height: 1.2; }
 
 .medium__header__text__svidetelstva { font-size: 16px; font-weight: 400; }
-
-.file-uploader { border-radius: 3px; color: #242424; }
-
-.file-uploader__message-area { font-size: 18px; color: #000; margin-bottom: 15px; }
-
-.file-list { background-color: #d0ffd6; }
-
-.file-list__name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-.file-list li { height: 50px; line-height: 50px; border: none; overflow: hidden; font-size: 18px; }
-
-.removal-button { width: 20%; border: none; color: white; background-color: #ff9999; cursor: pointer; }
-
-.removal-button:hover { background-color: #fc8181; transition: 0.2s; }
-
-.removal-button:active { background-color: #f76464; transition: 0.2s; }
-
-.removal-button::before { content: '\2716'; }
-
-.removal-button:focus { outline: 0; }
-
-.file-chooser { padding: 1em; transition: background-color 1s, height 1s; margin-top: 10px; }
-
-.file-uploader { max-width: 400px; height: auto; }
-
-.file-list__name { max-width: 70%; float: left; }
-
-.removal-button { display: inline-block; height: 100%; float: right; }
-
-.file-chooser { padding: 0; background: transparent; }
-
-input[type=file] { border: none; }
-
-.file-chooser__input { margin: 0 auto; }
-
-.file-uploader__submit-button { border-radius: 3px; border: none; margin-top: 15px; color: white; background-color: #8fb6f5; padding: 10px 25px; font-size: 16px; cursor: pointer; }
-
-.file-uploader__submit-button input[type=submit] { border: none; }
-
-.file-uploader__submit-button:focus { box-shadow: none; outline: none; }
-
-.file-uploader__submit-button:hover { background-color: #325fa8; }
-
-.file-uploader__submit-button:active { background-color: #254e8f; }
-
-.file-list li:after { content: ""; display: table; clear: both; }
-
-.hidden { display: none; }
-
-.hidden input { display: none; }
-
-.error { background-color: #d65d38; color: white; }
-
-*, *::before, *::after { box-sizing: border-box; }
 
 .link__inside__pages { font-size: 18px; margin-bottom: 5px; }
 
@@ -453,11 +397,33 @@ input[type=file] { border: none; }
 
 .sider__bar__center__page { position: sticky; top: 4rem; z-index: 1000; height: calc(75vh); }
 
-.contact__header__pages { font-size: 20px; font-weight: 300; color: #000; margin-bottom: 15px; margin-top: 15px; }
+.box_single_number { color: #004085; background-color: #cce5ff59; border-color: #b8daff; border-radius: 3px; padding: 10px 15px; }
 
-.contact__number { font-size: 20px; font-weight: 500; }
+.box_single_number a { font-size: 24px; font-weight: 450; color: #005bbb; text-decoration: none; }
 
-.adres__ac { font-size: 16px; font-weight: 500; }
+.consultant_number { font-size: 12px; margin-top: 5px; margin-bottom: 0px; }
+
+.box_contacti { padding: 35px 0px; }
+
+.headline_contacti { margin-bottom: 25px; font-size: 22px; font-weight: 450; }
+
+@media screen and (max-width: 320px) { .headline_contacti { margin-top: 15px; margin-bottom: 0px; } }
+
+.subtitle_contacti { font-size: 18px; font-weight: 450; margin-bottom: 0px; margin-bottom: 25px; }
+
+.name_contacti { margin-top: 10px; font-size: 20px; font-weight: 450; color: #005bbb; }
+
+.position { font-size: 16px; margin-top: 10px; }
+
+.phone_name { font-size: 18px; font-weight: 450; margin-top: 15px; }
+
+.line_contacti { border: 0.5px solid #eeeeee; margin-top: 15px; }
+
+.email_contacti { margin-top: 10px; }
+
+.email_contacti a { font-size: 14px; font-weight: 400; }
+
+.contacti_adres { font-size: 18px; margin-bottom: 15px; }
 
 .ya__map { margin-bottom: 25px; }
 
@@ -547,9 +513,17 @@ input[type=file] { border: none; }
 
 .page-link:focus { outline: none; box-shadow: none; }
 
-.menu__background { background-color: #373c41; padding: 20px 35px 20px 35px; border-top: 1px solid #f5f5f5; }
+.struktura { width: 1050px; }
 
-@media screen and (max-width: 992px) { .menu__background { padding: 15px; } }
+.subtitle_struktura { font-size: 16px; font-weight: 350; margin-top: 15px; }
+
+.box_struktura { border: 0.5px solid #005abb59; padding: 25px; margin-bottom: 25px; width: 250px; height: 150px; }
+
+.name_struktura { font-size: 14px; font-weight: 450; text-align: center; vertical-align: middle; }
+
+.menu__background { background-color: #005bbb; padding: 20px 35px 20px 35px; border-top: 1px solid #f5f5f5; }
+
+@media screen and (max-width: 992px) { .menu__background { padding: 15px 0px; } }
 
 .navbar { font-size: 16px; color: #fff; }
 
@@ -565,9 +539,9 @@ input[type=file] { border: none; }
 
 .menu__navbar .navbar-expand-lg .navbar-nav .nav-link { margin-right: 35px; }
 
-.dropdown-item { padding: 12px; }
+.dropdown-item { padding: 10px; }
 
-.dropdown-menu { margin-top: 22px; color: #ecf5fe; box-shadow: 0 2px 18px rgba(0, 0, 0, 0.09); border: none; border-radius: 0px; text-transform: initial; padding: 12px; }
+.dropdown-menu { margin-top: 25px; color: #ecf5fe; box-shadow: 0 2px 18px rgba(0, 0, 0, 0.09); border: none; border-radius: 0px; text-transform: initial; padding: 7px; }
 
 @media screen and (max-width: 320px) { .dropdown-menu { font-size: 14px; color: #fff; } }
 

@@ -2,137 +2,140 @@
 {% load static %}
 {% load link_holders %}
 {% block content %}
-<div class="container">
-
-  <button class="back__to__main">
-    <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
-        class="arrow__back__to__main text-align-center" alt="">
-      На главную</a>
-  </button>
-
-  <div class="row">
-
-    <div class="col-xl-2">
-      <div class="header__inside__pages">Документы</div>
-    </div>
-    <div class="col-xl-7">
-      <div class="col-12">
-        <p class="header__doc" id="ac_stdiag">Список документов СУР - 22АЦ</p>
-        <p class="doc__name__list">Наименование документов</p>
-        {% for doc in sur_22ac_list %}
-        <a href="{{ doc.document.url }}" download="">
-          <div class="doc__content">
-            <p class="doc__name">{{ doc.title }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-      <div class="col-12">
-        <p class="header__doc">Список документов АЦСМ-62</p>
-        <p class="doc__name__list">Наименование документов</p>
-        {% for doc in acsm_62_list %}
-        <a href="{{ doc.document.url }}" download="">
-          <div class="doc__content">
-            <p class="doc__name">{{ doc.title }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-      <div class="col-12">
-        <p class="header__doc">Список документов АЦСО-114</p>
-        <p class="doc__name__list">Наименование документов</p>
-        {% for doc in acso_114_list %}
-        <a href="{{ doc.document.url }}" download="">
-          <div class="doc__content">
-            <p class="doc__name">{{ doc.title }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-      <div class="col-12">
-        <p class="header__doc">Список документов АЦСТ-132</p>
-        <p class="doc__name__list">Наименование документов</p>
-        {% for doc in acst_132_list %}
-        <a href="{{ doc.document.url }}" download="">
-          <div class="doc__content">
-            <p class="doc__name">{{ doc.title }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-      <div class="col-12">
-        <p class="header__doc" id="ano_dpo_stdiag">Список документов АНО ДПО "Стандарт-Диагностика"</p>
-        <p class="doc__name__list">Наименование документов</p>
-        {% for doc in ano_dpo_list %}
-        <a href="{{ doc.document.url }}" download="">
-          <div class="doc__content">
-            <p class="doc__name">{{ doc.title }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-      <div class="col-12">
-        <p class="header__doc" id="lab_stdiag">Документы испытательная лаборатория "Стандарт-Диагностика"</p>
-        <p class="doc__name__list">Наименование документов</p>
-        {% for doc in lab_list %}
-        <a href="{{ doc.document.url }}" download="">
-          <div class="doc__content">
-            <p class="doc__name">{{ doc.title }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-      {% if other_docs %}
-      <div class="col-12">
-        <p class="header__doc">Другие документы</p>
-        <p class="doc__name__list">Наименование документов</p>
-        {% for doc in other_docs %}
-        <a href="{{ doc.document.url }}" download="">
-          <div class="doc__content">
-            <p class="doc__name">{{ doc.title }}</p>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
-    <div class="col-xl-3">
-      <div class="sider__bar">
-        <p class="right__column__header">
-          Услуги группы компаний "Стандарт-Диагностика":
-        </p>
-        <div class="list__service__column">
-          <p class="small__column__text">
-            <a href="{% url 'attsv' %}">Аттестация сварщиков и <br> специалистов
-              сварочного производства</a>
-          </p>
-          <p class="small__column__text">
-            <a href="{% url 'lab' %}#page-top"> Лаборатория разрушающего и неразрушающего контроля</a>
-          </p>
-          <p class="small__column__text">
-            <a href="{% link_holder 'ATTST' %}#page-top"> {% title_holder 'ATTST' %} </a>
-          </p>
-          <p class="small__column__text">
-            <a href="{% link_holder 'ATTSO' %}#page-top"> {% title_holder 'ATTSO' %} </a>
-          </p>
-          <p class="small__column__text">
-            <a href="{% link_holder 'ATTSM' %}#page-top"> {% title_holder 'ATTSM' %} </a>
-          </p>
-          <p class="small__column__text">
-            <a href="{% link_holder 'UCHEBNIY_CENTR' %}#page-top">{% title_holder 'UCHEBNIY_CENTR' %}</a>
-          </p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="line__otstup__inside__pages"></div>
+<div class="box_content_page">
+  <div class="container">
 
     <button class="back__to__main">
       <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
           class="arrow__back__to__main text-align-center" alt="">
         На главную</a>
     </button>
-    <div class="line__otstup__inside__pages"></div>
+  
+    <div class="row">
+  
+      <div class="col-xl-2">
+        <div class="header__inside__pages">Документы</div>
+      </div>
+      <div class="col-xl-7">
+        <div class="col-12">
+          <p class="header__doc" id="ac_stdiag">Список документов СУР - 22АЦ</p>
+          <p class="doc__name__list">Наименование документов</p>
+          {% for doc in sur_22ac_list %}
+          <a href="{{ doc.document.url }}" download="">
+            <div class="doc__content">
+              <p class="doc__name">{{ doc.title }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="col-12">
+          <p class="header__doc">Список документов АЦСМ-62</p>
+          <p class="doc__name__list">Наименование документов</p>
+          {% for doc in acsm_62_list %}
+          <a href="{{ doc.document.url }}" download="">
+            <div class="doc__content">
+              <p class="doc__name">{{ doc.title }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="col-12">
+          <p class="header__doc">Список документов АЦСО-114</p>
+          <p class="doc__name__list">Наименование документов</p>
+          {% for doc in acso_114_list %}
+          <a href="{{ doc.document.url }}" download="">
+            <div class="doc__content">
+              <p class="doc__name">{{ doc.title }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="col-12">
+          <p class="header__doc">Список документов АЦСТ-132</p>
+          <p class="doc__name__list">Наименование документов</p>
+          {% for doc in acst_132_list %}
+          <a href="{{ doc.document.url }}" download="">
+            <div class="doc__content">
+              <p class="doc__name">{{ doc.title }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="col-12">
+          <p class="header__doc" id="ano_dpo_stdiag">Список документов АНО ДПО "Стандарт-Диагностика"</p>
+          <p class="doc__name__list">Наименование документов</p>
+          {% for doc in ano_dpo_list %}
+          <a href="{{ doc.document.url }}" download="">
+            <div class="doc__content">
+              <p class="doc__name">{{ doc.title }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        <div class="col-12">
+          <p class="header__doc" id="lab_stdiag">Документы испытательная лаборатория "Стандарт-Диагностика"</p>
+          <p class="doc__name__list">Наименование документов</p>
+          {% for doc in lab_list %}
+          <a href="{{ doc.document.url }}" download="">
+            <div class="doc__content">
+              <p class="doc__name">{{ doc.title }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        {% if other_docs %}
+        <div class="col-12">
+          <p class="header__doc">Другие документы</p>
+          <p class="doc__name__list">Наименование документов</p>
+          {% for doc in other_docs %}
+          <a href="{{ doc.document.url }}" download="">
+            <div class="doc__content">
+              <p class="doc__name">{{ doc.title }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-xl-3">
+        <div class="sider__bar">
+          <p class="right__column__header">
+            Услуги группы компаний "Стандарт-Диагностика":
+          </p>
+          <div class="list__service__column">
+            <p class="small__column__text">
+              <a href="{% url 'attsv' %}">Аттестация сварщиков и <br> специалистов
+                сварочного производства</a>
+            </p>
+            <p class="small__column__text">
+              <a href="{% url 'lab' %}#page-top"> Лаборатория разрушающего и неразрушающего контроля</a>
+            </p>
+            <p class="small__column__text">
+              <a href="{% link_holder 'ATTST' %}#page-top"> {% title_holder 'ATTST' %} </a>
+            </p>
+            <p class="small__column__text">
+              <a href="{% link_holder 'ATTSO' %}#page-top"> {% title_holder 'ATTSO' %} </a>
+            </p>
+            <p class="small__column__text">
+              <a href="{% link_holder 'ATTSM' %}#page-top"> {% title_holder 'ATTSM' %} </a>
+            </p>
+            <p class="small__column__text">
+              <a href="{% link_holder 'UCHEBNIY_CENTR' %}#page-top">{% title_holder 'UCHEBNIY_CENTR' %}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="line__otstup__inside__pages"></div>
+  
+      <button class="back__to__main">
+        <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+            class="arrow__back__to__main text-align-center" alt="">
+          На главную</a>
+      </button>
+      <div class="line__otstup__inside__pages"></div>
+    </div>
   </div>
+</div>
   {% endblock content %}

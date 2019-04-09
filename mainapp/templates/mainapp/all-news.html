@@ -1,69 +1,79 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
-
+{% load link_holders %}
 {% block content %}
 
-<div class="container">
-
-    <button class="back__to__main mt-3">
-        <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
-                class="arrow__back__to__main text-align-center" alt="">
-            На главную</a>
-    </button>
-
-
-    <div class="row">
-        <div class="col-xl-2">
-            <div class="header__inside__pages">Все новости</div>
-        </div>
-
-        <div class="col-xl-10">
-            <div class="row mt-4">
-                {% for post in news %}
-                <div class="col-lg-4 mb-4">
-                    <div class="block__news">
-                        <a href="{% url 'detailview' 'news_post' post.pk %}#page-top" class="link__news">
-                            <div class="box__news">
-                                <p class="data__news__main">{{ post.published_date|date:"d-m-Y" }}</p>
-                                <h4>{{ post.title }}</h4>
-                                <p class="box__news__text">
-                                    {{ post.short_description }}
-                                </p>
-                            </div>
+  <div class="box_content_page">
+      <div class="container">
+            <button class="back__to__main mt-3">
+                    <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+                            class="arrow__back__to__main text-align-center" alt="">
+                        На главную</a>
+                </button>
+            
+        <div class="row">
+            <div class="col-xl-2">
+                <div class="header__inside__pages">Все новости</div>
+            </div>
+    
+            <div class="col-xl-10">
+                <div class="row mt-4">
+                    {% for post in news %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="block__news">
+                            <a href="{% url 'detailview' 'news_post' post.pk %}#page-top" class="link__news">
+                                <div class="box__news">
+                                    <p class="data__news__main">{{ post.published_date|date:"d-m-Y" }}</p>
+                                    <h4>{{ post.title }}</h4>
+                                    <p class="box__news__text">
+                                        {{ post.short_description }}
+                                    </p>
+                                </div>
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
-    </div>
-    {% if news|length > 6 %}
-    <div class="row">
-        <div class="col-6">
-            <nav aria-label="Page navigation example">
-                <nav>
-                    <ul class="pagination float-right">
-
-                        {% if news.has_previous %}
-                        <li class="page-item"><a class="page-link" href="?page=1">&laquo; Первая</a></li>
-                        <li class="page-item"><a class="page-link"
-                                href="?page={{ news.previous_page_number }}">Предыдущая</a></li>
-                        {% endif %}
-
-                        <li class="page-item active"><a class="page-link" href="?page={{ news.number }}">
-                                Страница {{ news.number }} из {{ news.paginator.num_pages }}</a></li>
-
-                        {% if news.has_next %}
-                        <li class="page-item"><a class="page-link"
-                                href="?page={{ news.next_page_number }}">Следующая</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ news.paginator.num_pages }}">Последняя
-                                &raquo;</a></li>
-                        {% endif %}
-
-                    </ul>
+    
+{% if news|length > 6 %}
+        
+        <div class="row">
+            <div class="col-6">
+                <nav aria-label="Page navigation example">
+                    <nav>
+                        <ul class="pagination float-right">
+    
+                            {% if news.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page=1">&laquo; Первая</a></li>
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ news.previous_page_number }}">Предыдущая</a></li>
+                            {% endif %}
+    
+                            <li class="page-item active"><a class="page-link" href="?page={{ news.number }}">
+                                    Страница {{ news.number }} из {{ news.paginator.num_pages }}</a></li>
+    
+                            {% if news.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ news.next_page_number }}">Следующая</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ news.paginator.num_pages }}">Последняя
+                                    &raquo;</a></li>
+                            {% endif %}
+    
+                        </ul>
+                    </nav>
                 </nav>
-            </nav>
+            </div>
         </div>
-    </div>
+{% endif %}
+        <button class="back__to__main mt-3">
+            <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+                    class="arrow__back__to__main text-align-center" alt="">
+                На главную</a>
+        </button>
+        </div>
+      </div>
+  </div>
+ 
+  {% endblock %}
 
-    {% endif %}
-    {% endblock %}

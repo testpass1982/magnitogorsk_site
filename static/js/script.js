@@ -74,118 +74,118 @@ window.onload = function () {
   $("#phone2").mask("+8 (9999) 999 - 99 - 99", { completed: function () { alert("Да, этой мой номер"); } });
 
   //jQuery plugin
-  (function ($) {
+  // (function ($) {
 
-    $.fn.uploader = function (options) {
-      var settings = $.extend({
-        MessageAreaText: "Вы не выбрали файл.",
-        // MessageAreaTextWithFiles: "Загруженные файлы:",
-        DefaultErrorMessage: "Невозможно открыть этот файл.",
-        BadTypeErrorMessage: "Не верный формат файла!",
-        acceptedFileTypes: ['pdf', 'jpg', 'doc', 'docx']
-      }, options);
+  //   $.fn.uploader = function (options) {
+  //     var settings = $.extend({
+  //       MessageAreaText: "Вы не выбрали файл.",
+  //       // MessageAreaTextWithFiles: "Загруженные файлы:",
+  //       DefaultErrorMessage: "Невозможно открыть этот файл.",
+  //       BadTypeErrorMessage: "Не верный формат файла!",
+  //       acceptedFileTypes: ['pdf', 'jpg', 'doc', 'docx']
+  //     }, options);
 
-      var uploadId = 1;
-      //update the messaging
-      $('.file-uploader__message-area p').text(options.MessageAreaText || settings.MessageAreaText);
+  //     var uploadId = 1;
+  //     //update the messaging
+  //     $('.file-uploader__message-area p').text(options.MessageAreaText || settings.MessageAreaText);
 
-      //create and add the file list and the hidden input list
-      var fileList = $('<ul class="file-list"></ul>');
-      var hiddenInputs = $('<div class="hidden-inputs hidden"></div>');
-      $('.file-uploader__message-area').after(fileList);
-      $('.file-list').after(hiddenInputs);
+  //     //create and add the file list and the hidden input list
+  //     var fileList = $('<ul class="file-list"></ul>');
+  //     var hiddenInputs = $('<div class="hidden-inputs hidden"></div>');
+  //     $('.file-uploader__message-area').after(fileList);
+  //     $('.file-list').after(hiddenInputs);
 
-      //when choosing a file, add the name to the list and copy the file input into the hidden inputs
-      $('.file-chooser__input').on('change', function () {
-        var file = $('.file-chooser__input').val();
-        var fileName = (file.match(/([^\\\/]+)$/)[0]);
+  //     //when choosing a file, add the name to the list and copy the file input into the hidden inputs
+  //     $('.file-chooser__input').on('change', function () {
+  //       var file = $('.file-chooser__input').val();
+  //       var fileName = (file.match(/([^\\\/]+)$/)[0]);
 
-        //clear any error condition
-        $('.file-chooser').removeClass('error');
-        $('.error-message').remove();
+  //       //clear any error condition
+  //       $('.file-chooser').removeClass('error');
+  //       $('.error-message').remove();
 
-        //validate the file
-        var check = checkFile(fileName);
-        if (check === "valid") {
+  //       //validate the file
+  //       var check = checkFile(fileName);
+  //       if (check === "valid") {
 
-          // move the 'real' one to hidden list
-          $('.hidden-inputs').append($('.file-chooser__input'));
+  //         // move the 'real' one to hidden list
+  //         $('.hidden-inputs').append($('.file-chooser__input'));
 
-          //insert a clone after the hiddens (copy the event handlers too)
-          $('.file-chooser').append($('.file-chooser__input').clone({ withDataAndEvents: true }));
+  //         //insert a clone after the hiddens (copy the event handlers too)
+  //         $('.file-chooser').append($('.file-chooser__input').clone({ withDataAndEvents: true }));
 
-          //add the name and a remove button to the file-list
-          $('.file-list').append('<li style="display: none;"><span class="file-list__name">' + fileName + '</span><button class="removal-button" data-uploadid="' + uploadId + '"></title></button></li>');
-          $('.file-list').find("li:last").show(800);
+  //         //add the name and a remove button to the file-list
+  //         $('.file-list').append('<li style="display: none;"><span class="file-list__name">' + fileName + '</span><button class="removal-button" data-uploadid="' + uploadId + '"></title></button></li>');
+  //         $('.file-list').find("li:last").show(800);
 
-          //removal button handler
-          $('.removal-button').on('click', function (e) {
-            e.preventDefault();
+  //         //removal button handler
+  //         $('.removal-button').on('click', function (e) {
+  //           e.preventDefault();
 
-            //remove the corresponding hidden input
-            $('.hidden-inputs input[data-uploadid="' + $(this).data('uploadid') + '"]').remove();
+  //           //remove the corresponding hidden input
+  //           $('.hidden-inputs input[data-uploadid="' + $(this).data('uploadid') + '"]').remove();
 
-            //remove the name from file-list that corresponds to the button clicked
-            $(this).parent().hide("puff").delay(10).queue(function () { $(this).remove(); });
+  //           //remove the name from file-list that corresponds to the button clicked
+  //           $(this).parent().hide("puff").delay(10).queue(function () { $(this).remove(); });
 
-            //if the list is now empty, change the text back
-            if ($('.file-list li').length === 0) {
-              $('.file-uploader__message-area').text(options.MessageAreaText || settings.MessageAreaText);
-            }
-          });
+  //           //if the list is now empty, change the text back
+  //           if ($('.file-list li').length === 0) {
+  //             $('.file-uploader__message-area').text(options.MessageAreaText || settings.MessageAreaText);
+  //           }
+  //         });
 
-          //so the event handler works on the new "real" one
-          $('.hidden-inputs .file-chooser__input').removeClass('file-chooser__input').attr('data-uploadId', uploadId);
+  //         //so the event handler works on the new "real" one
+  //         $('.hidden-inputs .file-chooser__input').removeClass('file-chooser__input').attr('data-uploadId', uploadId);
 
-          //update the message area
-          $('.file-uploader__message-area').text(options.MessageAreaTextWithFiles || settings.MessageAreaTextWithFiles);
+  //         //update the message area
+  //         $('.file-uploader__message-area').text(options.MessageAreaTextWithFiles || settings.MessageAreaTextWithFiles);
 
-          uploadId++;
+  //         uploadId++;
 
-        } else {
-          //indicate that the file is not ok
-          $('.file-chooser').addClass("error");
-          var errorText = options.DefaultErrorMessage || settings.DefaultErrorMessage;
+  //       } else {
+  //         //indicate that the file is not ok
+  //         $('.file-chooser').addClass("error");
+  //         var errorText = options.DefaultErrorMessage || settings.DefaultErrorMessage;
 
-          if (check === "badFileName") {
-            errorText = options.BadTypeErrorMessage || settings.BadTypeErrorMessage;
-          }
+  //         if (check === "badFileName") {
+  //           errorText = options.BadTypeErrorMessage || settings.BadTypeErrorMessage;
+  //         }
 
-          $('.file-chooser__input').after('<p class="error-message">' + errorText + '</p>');
-        }
-      });
+  //         $('.file-chooser__input').after('<p class="error-message">' + errorText + '</p>');
+  //       }
+  //     });
 
-      var checkFile = function (fileName) {
-        var accepted = "invalid",
-          acceptedFileTypes = this.acceptedFileTypes || settings.acceptedFileTypes,
-          regex;
+  //     var checkFile = function (fileName) {
+  //       var accepted = "invalid",
+  //         acceptedFileTypes = this.acceptedFileTypes || settings.acceptedFileTypes,
+  //         regex;
 
-        for (var i = 0; i < acceptedFileTypes.length; i++) {
-          regex = new RegExp("\\." + acceptedFileTypes[i] + "$", "i");
+  //       for (var i = 0; i < acceptedFileTypes.length; i++) {
+  //         regex = new RegExp("\\." + acceptedFileTypes[i] + "$", "i");
 
-          if (regex.test(fileName)) {
-            accepted = "valid";
-            break;
-          } else {
-            accepted = "badFileName";
-          }
-        }
+  //         if (regex.test(fileName)) {
+  //           accepted = "valid";
+  //           break;
+  //         } else {
+  //           accepted = "badFileName";
+  //         }
+  //       }
 
-        return accepted;
-      };
-    };
-  }(jQuery));
+  //       return accepted;
+  //     };
+  //   };
+  // }(jQuery));
 
-  //init
-  $(document).ready(function () {
-    $('.fileUploader').uploader({
-      MessageAreaText: "Прикрепить файлы"
-    });
-  });
-  $('.sub-dropdown-right a:not(.dropdown-item)').click(function(event) {
-    event.stopPropagation();
-    event.preventDefault();
-    let subMenu = $(event.target).find('.sub-dropdown-menu');
-    $(subMenu).toggle();
-  });
+  // //init
+  // $(document).ready(function () {
+  //   $('.fileUploader').uploader({
+  //     MessageAreaText: "Прикрепить файлы"
+  //   });
+  // });
+  // $('.sub-dropdown-right a:not(.dropdown-item)').click(function(event) {
+  //   event.stopPropagation();
+  //   event.preventDefault();
+  //   let subMenu = $(event.target).find('.sub-dropdown-menu');
+  //   $(subMenu).toggle();
+  // });
 };

@@ -58,20 +58,19 @@
                         <a class="dropdown-item" href="{% link_holder 'PREDATT' %}#page-top">Предаттестационная подготовка по ПБ</a>
                       </div>
                     </div>
-                    <a class="dropdown-item" href="{% link_holder 'ORGSTRUCTURE' %}#page-top">Организационная структура</a>
+                    <a class="dropdown-item" href="{% url 'orgstruktura' %}#page-top">Организационная структура</a>
                   </div>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Услуги</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'attsv' %}">Аттестация сварщиков и <br> специалистов
-                      сварочного производства</a>
-                    <a class="dropdown-item" href="{% url 'lab' %}#page-top">Лаборатория разрушающего <br>
-                      и неразрушающего контроля</a>
-                    <a class="dropdown-item" href="{% link_holder 'ATTST' %}">{% title_holder 'ATTST' %}</a>
-                    <a class="dropdown-item" href="{% link_holder 'ATTSM' %}">{% title_holder 'ATTSM' %}</a>
-                    <a class="dropdown-item" href="{% link_holder 'ATTSO' %}">{% title_holder 'ATTSO' %}</a>
+                    <a class="dropdown-item" href="{% url 'attsv' %}#page-top">Аттестация сварочного оборудования</a>
+                    <a class="dropdown-item" href="{% url 'acsm' %}#page-top">Аттестация сварочных материалов</a>
+                    <a class="dropdown-item" href="{% url 'acst' %}#page-top">Аттестация сварочных технологий</a>
+                    <a class="dropdown-item" href="{% url 'acsp' %}#page-top">Аттестация сварщиков и специалистов</a>
+                    <a class="dropdown-item" href="{% url 'lab' %}#page-top">Испытательная лаборатория</a>
+                           
                     <a class="dropdown-item"
                       href="{% link_holder 'UCHEBNIY_CENTR' %}">{% title_holder 'UCHEBNIY_CENTR' %}</a>
                   </div>

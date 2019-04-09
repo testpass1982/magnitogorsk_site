@@ -278,6 +278,21 @@ def documents(request):
 def services(request):
     return render(request, 'mainapp/services.html')
 
+def political(request):
+    return render(request, 'mainapp/political.html')
+
+def orgstruktura(request):
+    return render(request, 'mainapp/orgstruktura.html')
+
+def acsp(request):
+    return render(request, 'mainapp/acsp.html')
+
+def acsm(request):
+    return render(request, 'mainapp/acsm.html')
+
+def acst(request):
+    return render(request, 'mainapp/acst.html')
+
 
 def about(request):
     """this is docstring"""
@@ -362,7 +377,7 @@ def attsv(request):
     content = {
         'title': 'attsv',
     }
-    return render(request, 'mainapp/includes/svarshik-specialist.html', content)
+    return render(request, 'mainapp/includes/attsv.html', content)
 
 def docs(request):
     """view for documents page"""

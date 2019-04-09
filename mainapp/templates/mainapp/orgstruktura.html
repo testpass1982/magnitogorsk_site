@@ -1,0 +1,40 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+<div class="box_content_page">
+  <div class="container" id="page-top">
+
+    <button class="back__to__main">
+      <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+          class="arrow__back__to__main text-align-center" alt="">
+        На главную</a>
+    </button>
+
+    <div class="row">
+      <div class="col-xl-2">
+        <div class="header__inside__pages">Структура компании</div>
+        <p class="subtitle_struktura">
+                Организационная структура ООО НАКС Стандарт-Диагностика
+        </p>
+      </div>
+         </div>
+
+    <div class="row">
+        <div class="col-xl-2"></div>
+        <div class="col-xl-10">
+            <div class="box_img_struktura">
+                <img src="{% static 'img/org_struktura.png' %}" class="struktura" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <button class="back__to__main">
+      <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+          class="arrow__back__to__main text-align-center" alt="">
+        На главную</a>
+    </button>
+
+  </div>
+</div>
+{% endblock  %}
