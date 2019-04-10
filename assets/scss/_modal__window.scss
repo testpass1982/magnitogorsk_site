@@ -17,7 +17,7 @@
     border-bottom: none;
 	background-color: #ffffff;
 	color: #fff;
-	border-top: 15px solid rgb(91, 164, 221);
+	border-top: 15px solid #005bbb;
 }
 .modal-footer {
 	justify-content: flex-start;
@@ -146,7 +146,7 @@ input ~ label[for="soglasie"] {
  }
 
 .button__to__send_zayavka__formmodal{
-    background-color: #3eb5f1;
+    background-color: #005bbb;
 border: none;
 color: #fff;
 font-size: 16px;
@@ -161,11 +161,11 @@ padding: 12px 45px;
 
 
 .button__to__send_zayavka__formmodal:hover {
-	background-color: #47bbf5;
+	background-color: #0268d4;
 }
 
 .button__to__send_zayavka__formmodal:active {
-	background-color: #35a9e4;
+	background-color: #024286;
 }
 
 /* Выбор несколько из списка */

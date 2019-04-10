@@ -1,4 +1,4 @@
-// Спецификация
+
 
 body {
     font-family: "Avenir Next Cyr", sans-serif;
@@ -16,6 +16,9 @@ body {
 
 .box_content_page {
     padding: 45px 0px 45px;
+    @media screen and (max-width: 992px) {
+        padding: 25px 0px 25px;
+    }
 }
 
 .line__otstup__inside__pages {
@@ -27,10 +30,8 @@ body {
     border: none;
     background: transparent;
     font-size: 14px;
-    padding: 0px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
+    padding: 25px 0px 25px; 
+  
     a {
         text-decoration: none;
         color: #007bff;
@@ -50,6 +51,34 @@ body {
 
 // Хедр
 
+
+.box_header_top{
+    background-color: rgb(238, 238, 238);
+    padding: 7px;
+}
+
+.time_work{
+    font-size: 12px;
+    font-weight: 350;
+    color: #000;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.time_no_work{
+    font-size: 12px;
+    font-weight: 3450;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.profstandart_header_top_button{
+text-align: right;
+a{
+    text-decoration: none;
+}
+}
 
 .box__items {
     @media screen and (max-width: 576px) {
@@ -129,7 +158,7 @@ body {
     }
 
     @media screen and (max-width: 992px) {
-        background-color: #5e7daf;
+        background-color: #005bbb;
         padding: 10px 25px;
         margin-top: 10px;
         border-radius: 3px;
@@ -238,20 +267,23 @@ body {
     color: #fff;
     width: 100%;
     padding: 45px 0px;
+    @media screen and (max-width: 576px) {
+        text-align: center;
+    }
 }
 
 .bg__text__head {
     font-size: 36px;
     font-weight: 550;
-    color: #000;
+    color: #fff;
     text-align: center;
 }
 
 .bg__text__small {
-    font-size: 18px;
-    font-weight: 450;
-    color: #000;
-    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    // text-align: center;
     line-height: 1.8;
 
     @media screen and (max-width: 320px) {
@@ -262,22 +294,22 @@ body {
 .bg__text__naks {
     font-size: 16px;
     font-weight: 500;
-    color: #000;
-    text-align: center;
-    color: #000000;
+    color: #fff;
+    // text-align: center;
+ 
 }
 
 .bg__line {
     border-bottom: 1px solid #005bbb;
     width: 50px;
-    text-align: center;
+    // text-align: center;
     margin: auto;
     margin-bottom: 15px;
     margin-top: 15px;
 }
 
 .online__zayavka__button {
-    text-align: center;
+    // text-align: center;
     margin-top: 15px;
 }
 
@@ -309,15 +341,11 @@ body {
 
 .naks__web a {
     text-decoration: none;
-    color: #0173c1;
-
-    &:hover {
-        color: #005bbb;
-    }
+    color: #fff;
 }
 
 .naks__web {
-    text-align: center;
+    // text-align: center;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 10px;
@@ -330,14 +358,24 @@ body {
 .header__name {
     color: #000;
     font-size: 28px;
-    font-weight: 500;
-    margin-top: 80px;
+    font-weight: 500; 
+    margin-bottom: 25px;   
+    @media screen and (max-width: 576px) {
+        margin-top: 25px;
+    }
+}
+
+.content_info_center{
+font-size: 16px;
+color: rgb(53, 53, 53);
+font-weight: 450;
 }
 
 .text__medium {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 450;
     color: #000;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -1091,83 +1129,144 @@ body {
 
 .header__service {
     font-size: 24px;
-    font-weight: 400;
-    color: #000;
-    margin-top: 25px;
+    font-weight: 450;
+    color: #000;   
     margin-bottom: 10px;
-}
-
-.trebovanie__left__column {
-    margin-top: 25px;
-    font-size: 16px;
-    font-weight: 400;
+    @media screen and (max-width: 992px) {
+      font-size: 20px;
+    }
 }
 
 .box__service__inside__pages {
-    border: 1px solid #f1f1f1;
-    padding: 10px 25px 25px;
-
+    padding: 25px 25px 25px;
     @media screen and (max-width: 1199px) {
         margin-top: 15px;
+        padding: 25px 0px 25px;
     }
 }
 
-.trebovanie__list {
-    font-size: 14px;
-    margin-bottom: 0;
 
-    p {
-        margin-bottom: 5px;
-    }
-}
-
-.small__header__pages {
-    font-size: 18px;
-    font-weight: 550;
-    margin-top: 15px;
-    color: #0066ac;
-}
-
-
-.list__item__text {
+.subtitle_medium_text {
     font-size: 16px;
-    line-height: 2;
+    font-weight: 500;
+    margin-top: 15px;
+    color: #2c2c2c;
 }
 
-.line__inside_pages {
-    border: 0.5px solid rgb(207, 207, 207);
+.line_inside_pages{
+    border: 0.5px solid #f1f1f1;
     margin-bottom: 25px;
     margin-top: 25px;
 }
 
-.danger__text__pages {
+.subtitle_info_service{
     font-size: 18px;
-    font-weight: 500;
-    color: #0066ac;
+    font-weight: 450;
+    color:  #000000;
+    margin-top: 15px;
 }
 
-.inside__text {
-    font-size: 16px;
-    margin-bottom: 5px;
+.introduction_text{
+    font-size: 16px; 
     margin-bottom: 10px;
+    margin-top: 10px;
+    color: #004085;
+    font-weight: 450;
+    background-color: #cce5ff49;
+    border: 0.5px solid #80bbfa4f;
+    border-radius: 3px;
+    padding: 15px 20px;
+    p{
+        margin-bottom: 0px;
+    }
 }
 
-.box__yellow_bg {
-    padding: 25px 25px;
-    background-color: rgba(236, 236, 236, 0.8);
+.introduction_text_two{
+    font-size: 16px; 
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #856404;
+    font-weight: 450;
+    background-color: #fff3cd48;
+    border: 0.5px solid #ffeeba4b;
+    border-radius: 3px;
+    padding: 15px 25px;
+    p{
+        margin-bottom: 0px;
+        line-height: 2;
+    }
+}
+
+.introduction_text_warning{
+    font-size: 16px; 
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #721c24;
+    font-weight: 450;
+    background-color: #f8d7da48;
+    border: 0.5px solid #f5c6cb4b;
+    border-radius: 3px;
+    padding: 15px 25px;
+    p{
+        margin-bottom: 0px;
+        line-height: 2;
+    }
+}
+
+.box_service_info{
+    margin-top: 10px;
+}
+
+.box_service_info p{  
+    font-size: 15px;
+    font-weight: 450;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.pynkti{
     font-size: 16px;
+    font-weight: 400;
 }
 
-.specialist__text__small {
-    margin-bottom: 0;
+.trebovanie__right_column{
+    font-size: 18px;
+    font-weight: 450;
+    color: #000;
 }
 
+.sider__bar__service__pages a{
+   font-size: 15px;
+   font-weight: 400;
+   line-height: 1.2;
+}
+
+.line_side_panel{
+    border: 0.5px solid #f1f1f1;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
 
 .sider__bar__service__pages {
     position: sticky;
     top: 4rem;
     z-index: 1000;
-    height: calc(55vh);
+    height: calc(90vh);
+    @media screen and (max-width: 1900px) {
+        height: calc(150vh);
+    }
+    @media screen and (max-width: 1400px) {
+        height: calc(150vh);
+    }
+    @media screen and (max-width: 992px) {
+        height: calc(55vh);
+    }
+}
+
+.box_right_column_service{
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
 }
 
 
@@ -1393,32 +1492,68 @@ body {
 
 // О центре
 
-.link__inside__pages {
-    font-size: 18px;
-    margin-bottom: 5px;
+.headline_center{
+    font-size: 24px;
+    font-weight: 450;
+    color: #000;
+    padding: 25px 0px;
 }
 
-.grafik__work {
-    font-size: 16px;
-    font-weight: 400;
+.subtitle_center{
+    font-size: 20px;
+    font-weight: 450;
+}
 
-    p {
-        margin-bottom: 8px;
+.small_text_center{
+    font-size: 16px;
+    font-weight: 350;    
+}
+
+.introduction_text_center{
+    font-size: 16px; 
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #004085;
+    font-weight: 450;
+    background-color: #cce5ff49;
+    border: 0.5px solid #80bbfa4f;
+    border-radius: 3px;
+    padding: 15px 20px;
+    p{
+        margin-bottom: 10px;
     }
 }
 
-.grafik__red {
-    font-size: 16px;
-    font-weight: 400;
-    color: red;
+.headline_right_column{
+    font-size: 18px;
+    font-weight: 450;
+    color: #000;
+    padding: 0px 25px;
 }
 
-.sider__bar__center__page {
-    position: sticky;
-    top: 4rem;
-    z-index: 1000;
-    height: calc(75vh);
+.line_left{
+    border-left: 0.5px solid #f1f1f1;
 }
+
+.box_center_img{
+    padding: 25px 25px;
+}
+
+.img_box_center{
+    margin-bottom: 2px;
+    margin-right: 2px;
+    &:hover{
+        transition: 0.2s;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+        -webkit-transform: scale(1.01);
+        -moz-transform: scale(1.01);
+        -o-transform: scale(1.01);
+    }
+}
+
+
 
 // Contact page
 

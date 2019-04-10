@@ -39,7 +39,7 @@
                         АЦ ООО "НАКС Стандарт-Диагностика"
                       </a>
                       <div class="sub-dropdown-menu dropdown-menu">
-                        <a class="dropdown-item" href="{% link_holder 'ABOUT_AC' %}#page-top">Об аттестационном центре</a>
+                        <a class="dropdown-item" href="{% url 'center' %}#page-top">Об аттестационном центре</a>
                         <a class="dropdown-item" href="{% link_holder 'SUR_22AC' %}#page-top">Аттестация персонала сварочного производства (СУР-22АЦ, СУР-3ЦСП)</a>
                         <a class="dropdown-item" href="{% link_holder 'ACSM_62' %}#page-top">Аттестация сварочных материалов (АЦСМ-62)</a>
                         <a class="dropdown-item" href="{% link_holder 'ACSO_114' %}#page-top">Аттестация сварочного оборудования (АЦСО-114)</a>
@@ -65,15 +65,12 @@
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Услуги</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'attsv' %}#page-top">Аттестация сварочного оборудования</a>
+                    <a class="dropdown-item" href="{% url 'atso' %}#page-top">Аттестация сварочного оборудования</a>
                     <a class="dropdown-item" href="{% url 'acsm' %}#page-top">Аттестация сварочных материалов</a>
-                    <a class="dropdown-item" href="{% url 'acst' %}#page-top">Аттестация сварочных технологий</a>
-                    <a class="dropdown-item" href="{% url 'acsp' %}#page-top">Аттестация сварщиков и специалистов</a>
-                    <a class="dropdown-item" href="{% url 'lab' %}#page-top">Испытательная лаборатория</a>
-                           
-                    <a class="dropdown-item"
-                      href="{% link_holder 'UCHEBNIY_CENTR' %}">{% title_holder 'UCHEBNIY_CENTR' %}</a>
-                  </div>
+                    <a class="dropdown-item" href="{% url 'acst' %}#page-top">Аттестация сварочных технологий</a>           
+                    <a class="dropdown-item" href="{% url 'atsssp' %}#page-top">Аттестация сварщиков и специалистов</a>
+                    <a class="dropdown-item" href="{% url 'lab' %}#page-top">Испытательная лаборатория</a>                          
+                   
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -95,9 +92,7 @@
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
-              </ul>
-
-              <a href="{% url 'profstandard' %}#page-top" class="btn btn-success btn-sm">Профстандарты в сварке</a>
+              </ul>             
 
             </div>
             <div class="system__button">

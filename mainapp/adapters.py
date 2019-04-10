@@ -10,8 +10,8 @@ class MessageModelAdapter:
             self.title = data['name']
             self.typeof = 'Заявка'
             self.params = {
-                'attsv': 'attsv' in data,
-                'attsp': 'attsv' in data,
+                'atso': 'atso' in data,
+                'attsp': 'atso' in data,
                 'attso': 'attso' in data,
                 'attst': 'attst' in data,
                 'nok': 'nok' in data,

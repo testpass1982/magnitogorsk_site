@@ -1,74 +1,50 @@
 {% load static %}
 {% load link_holders %}
-<div class="box__content">
+<div class="box_content_page">
     <div class="container">
         <div class="row">
 
 
-            <div class="col-xl-7">
+            <div class="col-xl-6">
                 <div class="header__name">
-                    <p class="">Аттестационный центр НАКС</p>
+                    <p class="">Группа компаний "Стандарт Диагностик"</p>
                 </div>
-                <div class="content__text__info__box">
+                <div class="content__text__info__box">               
+                
                     <p class="text__medium">
-                        Общество с ограниченной ответственностью ООО «НАКС Стандарт-Диагностика» осуществляет деятельность по аттестации сварочного производства:
+                        Учебный центр был создан как структурное подразделение ЗАО МНТЦ «Диагностика» в 1996 году.
+                        Получена лицензия Госгортехнадзора на подготовку кадров 22.04.1996 г.
                     </p>
-                    <div class="box__info__text__small">
-                        <p class="info__text__small">
-                            Аттестация сварщиков и специалистов сварочного производства согласно требованиям <br>
-                            <a href="{% doc_holder 'PB_273' %}">ПБ 03-273-99,</a>
-                            <a data-info="RD_495" href="{% doc_holder 'RD_495' %}">РД 03-495-02;</a>
+                    <div class="box_content_info_center">
+                        <p class="content_info_center">
+                            Наша организация аккредитована в системе экспертизы и аккредитации в области промышленной
+                            безопасности в качестве Независимого атеестационно-методического центра по
+                            предаттестационной подготовке руководителей и специалистов в области промышленной
+                            безопасности в следующих областях: А, Б1, Б2, Б3, Б4, Б6, Б7, Б8, Б9, Б10, Б11, Г1, Г2, Г3,
+                            Д.
                         </p>
-                        <p class="info__text__small">
-                            Аттестация технологий сварки согласно требованиям <a data-info="RD_615" href="{% doc_holder 'RD_615' %}">РД 03-615-03;</a>
+                        <p class="content_info_center">
+                            С 2010 г. АНО МАЦ "Стандарт-Диагностика" аккредитована Некоммерческим партнерством
+                            «Саморегулируемая организация Союз строительных компаний Урала и Сибири» (Свидетельство о
+                            профессионально-общественной аккредитации № 09-15 от 23.03.15г.) и имеет право осуществлять
+                            профессиональное обучение руководителей и специалистов организации – членов НП СРО «ССК
+                            УрСиб», в рамках реализации программ дополнительного профессионального образования.
                         </p>
-                        <p class="info__text__small">
-                            Аттестация сварочных материалов согласно требованиям <a data-info="RD_613" href="{% doc_holder 'RD_613' %}">РД 03-613-03;</a>
+                        <p class="content_info_center">
+                                В 2011 г. Министерством здравоохранения и социального развития РФ наша организация внесена в реестр аккредитованных организаций, оказывающие услуги в области охраны труда под регистрационным номером № 2234 от 08.11.2011г. (Уведомление от 30.11.2011 г.)
                         </p>
-                        <p class="info__text__small">
-                            Аттестация сварочного оборудования согласно требованиям <a data-info="RD_614" href="{% doc_holder 'RD_614' %}">РД 03-614-03;</a>
-                        </p>
-                        <p class="info__text__small">
-                            Услуги испытательной лаборатории неразрушающего и разрушающих методов контроля.
-                        </p>
-                    </div>
-                    <p class="header__name__small">
-                        Разрешительные документы
-                    </p>
-                    <main role="main">
-                        <p class="imglist d-flex">
-                            <a href="{% static 'img/sur_22_ac_max.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                                <img src="{% static 'img/sur_22_ac_min.jpg' %}" class="img-fluid">
-                            </a>
-                            <a href="{% static 'img/sur_3csp_max.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                                <img src="{% static 'img/sur_3csp_min.jpg' %}" class="img-fluid">
-                            </a>
-                            <a href="{% static 'img/acsm_62_max.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                                <img src="{% static 'img/acsm_62_min.jpg' %}" class="img-fluid">
-                            </a>
-                            <a href="{% static 'img/acso_114_max.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                                <img src="{% static 'img/acso_114_min.jpg' %}" class="img-fluid">
-                            </a>
-                            <a href="{% static 'img/acst_132_max.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                                <img src="{% static 'img/acst_132_min.jpg' %}" class="img-fluid">
-                            </a>
-                            <a href="{% static 'img/dopusk_st_max.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                                <img src="{% static 'img/dopusk_st_min.jpg' %}" class="img-fluid">
-                            </a>
-                            <a href="{% static 'img/IL_max.jpg' %}" class="img_box" data-fancybox="group1" data-type="image">
-                                <img src="{% static 'img/IL_min.jpg' %}" class="img-fluid">
-                            </a>
-                        </p>
-                    </main>
+                    </div>              
                     <div class="link__read__more">
-                        <a href="{% link_holder 'ABOUT' %}" class="read__more__link">
+                        <a href="{% url 'center' %}#page-top" class="read__more__link">
                             Подробнее об организации <img src="{% static 'img/arrow__next.png' %}" alt="">
                         </a>
                     </div>
                 </div>
             </div>
 
-
+<div class="col-xl-1">
+    
+</div>
             <div class="col-xl-5">
                 {% include 'mainapp/includes/services_menu.html' %}
             </div>
@@ -136,8 +112,8 @@
                     </div>
                     <div class="search__info__box">
                         <p class="search__text__box d-inline-block">Сервис поиска работы <br> в области сварки</p>
-                        <a href="http://www.bewelder.ru" target="_blank" class="search__work__link d-inline-block">Найти работу <img src="{% static 'img/arrow__next.png' %}"
-                                alt=""></a>
+                        <a href="http://www.bewelder.ru" target="_blank" class="search__work__link d-inline-block">Найти
+                            работу <img src="{% static 'img/arrow__next.png' %}" alt=""></a>
                         <a href="http://www.bewelder.ru" target="_blank">
                             <p class="search__text__box">www.bewelder.ru</p>
                         </a>

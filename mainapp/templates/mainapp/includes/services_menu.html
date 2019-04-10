@@ -1,62 +1,58 @@
 {% load link_holders %}
-                <div class="header__name">
-                    <p class="">Услуги центра</p>
+<div class="header__name">
+    <p class="">Услуги центра</p>
+</div>
+<div class="row">
+    <div class="col-md-6 col-xl-12">
+        <div class="button__services">
+            <a href="{% url 'atso' %}#page-top">
+                <div class="box__service">
+                    <p class="services__name">
+
+                        Аттестация сварочного оборудования</p>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-xl-12">
-                        <div class="button__services">
-                            <a href="{% url 'attsv' %}#page-top">
-                                <div class="box__service">
-                                    <p class="services__name">Аттестация сварщиков <br>
-                                        и специалистов сварочного производства</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-12">
-                        <div class="button__services">
-                            <a href="{% url 'lab' %}">
-                                <div class="box__service">
-                                    <p class="services__name">Лаборатория разрушающего <br>
-                                        и неразрушающего контроля</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-12">
-                        <div class="button__services">
-                            <a href="{% link_holder 'UCHEBNIY_CENTR' %}">
-                                <div class="box__service">
-                                    <p class="services__name">{% title_holder 'UCHEBNIY_CENTR' %}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-12">
-                        <div class="button__services">
-                            <a href="{% link_holder 'ATTST' %}">
-                                <div class="box__service">
-                                    <p class="services__name">{% title_holder 'ATTST' %}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-6">
-                        <div class="button__services">
-                            <a href="{% link_holder 'ATTSO' %}">
-                                <div class="box__service">
-                                    <p class="services__name">{% title_holder 'ATTSO' %}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-6">
-                        <div class="button__services">
-                            <a href="{% link_holder 'ATTSM' %}">
-                                <div class="box__service">
-                                    <p class="services__name">{% title_holder 'ATTSM' %}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-12">
+        <div class="button__services">
+            <a href="{% url 'acsm' %}">
+                <div class="box__service">
+                    <p class="services__name">Аттестация сварочных материалов</p>
                 </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-12">
+        <div class="button__services">
+            <a href="{% url 'acst' %}">
+                <div class="box__service">
+                    <p class="services__name">Аттестация производственной технологии сварки (наплавки)
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-12">
+        <div class="button__services">
+            <a href="{% url 'atsssp' %}">
+                <div class="box__service">
+                    <p class="services__name">Аттестация сварщиков и специалистов
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-12">
+        <div class="button__services">
+            <a href="{% url 'lab' %}">
+                <div class="box__service">
+                    <p class="services__name">Лаборатория разрушающего <br>
+                        и неразрушающего контроля
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>

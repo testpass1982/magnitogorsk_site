@@ -1,0 +1,40 @@
+{% load link_holders %}
+<div class="sider__bar__service__pages">
+    <div class="box_doc_right_column">
+        <p class="trebovanie__right_column">
+            Требования к аттестации:
+        </p>
+        <a data-info="RD_495" href="{% link_holder 'RD_495' %}" class="trebovanie__list">
+            <p>
+                • РД 03-614-03</p>
+        </a>
+        <div class="line_side_panel"></div>
+    </div>
+    <div class="box_doc_right_column">
+        <p class="trebovanie__right_column">
+            Заявки
+        </p>
+        <a data-info="RD_495" href="{% link_holder 'RD_495' %}" class="trebovanie__list">
+            <p>
+                Формы
+                заявок на проведение проверки готовности
+                организации-заявителя к использованию аттестованной технологии сварки (наплавки)
+
+        </a>
+        <div class="line_side_panel"></div>
+    </div>
+    <div class="box_right_column_service">
+        <p class="right__column__header">
+            Другие услуги
+        </p>
+
+        <div class="list__service__column">
+                <p class="small__column__text"><a href="{% url 'atso' %}#page-top"> Аттестация сварочного оборудования</a></p>
+                <p class="small__column__text"><a href="{% url 'acsm' %}#page-top"> Аттестация сварочных материалов</a></p>               
+                <p class="small__column__text"><a href="{% url 'acst' %}#page-top"> Аттестация производственной технологии сварки (наплавки)</a></p>               
+                <p class="small__column__text"><a href="{% url 'atsssp' %}#page-top">Аттестация сварщиков</a></p>               
+                <p class="small__column__text"><a href="{% url 'lab' %}#page-top"> Испытательная лаборатория</a></p>               
+</div>
+
+    </div>
+</div>

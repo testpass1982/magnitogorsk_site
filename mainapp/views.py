@@ -293,6 +293,12 @@ def acsm(request):
 def acst(request):
     return render(request, 'mainapp/acst.html')
 
+def atsssp(request):
+    return render(request, 'mainapp/atsssp.html')
+
+def center(request):
+    return render(request, 'mainapp/center.html')
+
 
 def about(request):
     """this is docstring"""
@@ -371,13 +377,13 @@ def lab(request):
     content = {
         'title': 'lab',
     }
-    return render(request, 'mainapp/includes/laboratoriya.html', content)
+    return render(request, 'mainapp/laboratoriya.html', content)
 
-def attsv(request):
+def atso(request):
     content = {
-        'title': 'attsv',
+        'title': 'atso',
     }
-    return render(request, 'mainapp/includes/attsv.html', content)
+    return render(request, 'mainapp/atso.html', content)
 
 def docs(request):
     """view for documents page"""

@@ -1,8 +1,13 @@
-<div class="box_content_page">
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="box_content_page" id="page-top">
   <div class="container">
 
     <button class="back__to__main">
-      <a href="{% url 'main' %}"> <img src="/img/back__arrow-01.png" class="arrow__back__to__main text-align-center" alt="">
+      <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+          class="arrow__back__to__main text-align-center" alt="">
         На главную</a>
     </button>
 
@@ -11,130 +16,166 @@
       <div class="col-xl-2">
         <div class="header__inside__pages">О центре</div>
       </div>
-      <div class="col-xl-7">
-        <p class="header__doc">Центр аттестации СУР - 22АЦ</p>
-        <p class="doc__name__list">Организация является членом Саморегулируемая
-          организация Ассоциация «НАКС».</p>
-        <p class="small__header__pages">
-          Аккредитовано в установленном порядке и обладает Аттестатами соответствия и Свидетельствами о допуске к
-          осуществлению деятельности по аттестации. Общество с ограниченной ответственностью Аттестационный и сертификационный центр «Инженерный и
-          технологический сервис сварочного производства» (ООО «НАКС Стандарт-Диагностика», г. Москва, далее Центр)
-          проводит аттестацию по таким услугами как:
-        </p>
-        <div class="box__info__text__small">
-          <p class="info__text__small">
-            Аттестация сварщиков и специалистов сварочного производства согласно требованиям <br>
-            <a href="">ПБ 03-273-99,</a>
-            <a href="">РД 03-495-02;</a>
-          </p>
-          <p class="info__text__small">
-            Аттестация технологий сварки согласно требованиям <a href="">РД 03-615-03;</a>
-          </p>
-          <p class="info__text__small">
-            Аттестация сварочных материалов согласно требованиям <a href="">РД 03-613-03;</a>
-          </p>
-          <p class="info__text__small">
-            Аттестация сварочного оборудования согласно требованиям <a href="">РД 03-614-03;</a>
-          </p>
-          <p class="info__text__small">
-            Услуги испытательной лаборатории неразрушающего и разрушающих методов контроля.
-          </p>
-         <p class="link__inside__pages"> <a href="doc.html">Необходимые документы для аттестации в нашем центре</a></p>
-         <p class="link__inside__pages"> <a href="reestr.html">Ресстр САСв нашего центра</a></p>
-         <p class="link__inside__pages"> <a href="reestr.html">Профстандарты в области сварки</a></p>
-        </div>
-        <p class="small__header__pages">
-           График работы центра:
-             </p>
-             <div class="grafik__work">
-                <p>Понедельник – 08.00 - 17.00</p>
-                <p>Вторник – 08.00 - 17.00</p>
-                <p>Среда – 08.00 - 17.00</p>
-                <p>Четверг – 08.00 - 17.00</p>
-                <p>Пятница – 08.00 - 15.45</p>
-                <p class="grafik__red">Обед с 12:00 до 13:00</p>
-                <p class="grafik__red">Сб - Вс, выходной.</p>
-             </div>
-        <div class="line__inside_pages"></div>
-        <p class="small__header__pages">
-         Аттестаты соответствия
-          </p>
-          <main role="main">
-              <p class="imglist d-flex">
-                  <a href="/img/img_at.jpg" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="/img/img_at.jpg" class="img-fluid">
-                  </a>
-                  <a href="/img/img_at2.jpg" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="/img/img_at2.jpg" class="img-fluid">
-                  </a>
-                  <a href="/img/img_at2.jpg" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="/img/img_at2.jpg" class="img-fluid">
-                  </a>
-                  <a href="/img/img_at2.jpg" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="/img/img_at2.jpg" class="img-fluid">
-                  </a>
-                  <a href="/img/img_at2.jpg" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="/img/img_at2.jpg" class="img-fluid">
-                  </a>
-                  <a href="/img/img_at2.jpg" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="/img/img_at2.jpg" class="img-fluid">
-                  </a>
-                  <a href="/img/img_at2.jpg" class="img_box" data-fancybox="group1" data-type="image">
-                      <img src="/img/img_at2.jpg" class="img-fluid">
-                  </a>
-              </p>
-          </main>
-      </div>
-
-      <div class="col-xl-2">
-
-        <div class="sider__bar__center__page">
-          <p class="trebovanie__left__column">
-            Требования к аттестациям:
-          </p>
-          <a href="" class="trebovanie__list">
-            <p>
-              • ПБ 03-273-99</p>
-          </a>
-          <a href="" class="trebovanie__list">
-            <p>
-              • РД 03-615-03</p>
-          </a>
-          <a href="" class="trebovanie__list">
-            <p>
-              • РД 03-613-03</p>
-          </a>
-          <a href="" class="trebovanie__list">
-            <p>
-              • РД 03-614-03</p>
-          </a>
-          <p class="right__column__header">
-            Подать заявку на аттестацию:
-          </p>
-          <div class="list__service__column">
-            <p class="small__column__text"><a href=""> Аттестация сварщиков
-                и специалистов сварочного производства</a></p>
-            <p class="small__column__text"><a href=""> Лаборатория разрушающего
-                и неразрушающего контроля</a></p>
-            <p class="small__column__text"><a href=""> Аттестация технологий
-                сварки</a></p>
-            <p class="small__column__text"><a href=""> Аттестация сварочного
-                оборудования</a></p>
-            <p class="small__column__text"><a href=""> Аттестация сварочных материалов</a></p>
-
-          </div>
+      <div class="col-xl-4">
+        <div class="headline_center">
+          Основные сведения
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xl-2"></div>
+      <div class="col-xl-6">
+        <p class="subtitle_center">
+          АНО ДПО «Стандарт-Диагностика» входит в Группу компаний «Диагностика», которая была основана в 1994 году.
+        </p>
+        <div class="box_center">
+          <p class="small_text_center">
+            Учебный центр был создан как структурное подразделение ЗАО МНТЦ «Диагностика» в 1996 году. Получена лицензия
+            Госгортехнадзора на подготовку кадров 22.04.1996 г.
+          </p>
+          <p class="small_text_center">
+            В 1999 г. Учебный центр выделен в отдельную юридическую структуру Автономная некоммерческая организация
+            Магнитогорский аттестационный центр «Стандарт-Диагностика», (АНО МАЦ «Стандарт-Диагностика»), учредителем
+            являлось ЗАО МНТЦ «Диагностика». Получена лицензия Управления образования по Челябинской области на
+            осуществление образовательной деятельности, которая подтверждалась каждые 5 лет.
+          </p>
+          <p class="small_text_center">
+            С 2006 года и по настоящее время учебный центр является Экзаменационным центром Независимого органа по
+            аттестации (сертификации) персонала в области неразрушающего контроля АО «НИКИМТ-Атомстрой» -
+            Аттестационного центра НИКИМТ (Свидетельство № 09-03).
+          </p>
+          <p class="small_text_center">
+            Наша организация аккредитована в системе экспертизы и аккредитации в области промышленной безопасности в
+            качестве Независимого атеестационно-методического центра по предаттестационной подготовке руководителей и
+            специалистов в области промышленной безопасности в следующих областях: А, Б1, Б2, Б3, Б4, Б6, Б7, Б8, Б9,
+            Б10, Б11, Г1, Г2, Г3, Д.
+          </p>
+          <p class="small_text_center">
+            С 2010 г. АНО МАЦ "Стандарт-Диагностика" аккредитована Некоммерческим партнерством «Саморегулируемая
+            организация Союз строительных компаний Урала и Сибири» (Свидетельство о профессионально-общественной
+            аккредитации № 09-15 от 23.03.15г.) и имеет право осуществлять профессиональное обучение руководителей и
+            специалистов организации – членов НП СРО «ССК УрСиб», в рамках реализации программ дополнительного
+            профессионального образования.
+          </p>
+          <p class="small_text_center">
+            В 2011 г. Министерством здравоохранения и социального развития РФ наша организация внесена в реестр
+            аккредитованных организаций, оказывающие услуги в области охраны труда под регистрационным номером № 2234 от
+            08.11.2011г. (Уведомление от 30.11.2011 г.)
+          </p>
+          <div class="line_inside_pages"></div>
+          <p class="subtitle_center">
+            АНО МАЦ "Стандарт-Диагностика" участвовала в организации и проведении семинаров:
+          </p>
+          <p class="small_text_center">
+            - «Обеспечение промышленной безопасности при эксплуатации опасных металлургических и коксохимических
+            предприятий и производств», 2007 г., г. Сочи совместно с Управлением государственного горного и
+            металлургического надзора Центрального аппарата Ростехнадзора
+          </p>
+          <p class="small_text_center">
+            - IX Всероссийский Форум Единой системы оценки соответствия на объектах, подконтрольных Ростехнадзору, 2008
+            г., г. Сочи, совместно с Ростехнадзором.
+          </p>
+          <p class="small_text_center">
+            - «Совершенствование надзорной деятельности и развитие технического регулирования в металлургических и
+            коксохимических производствах», 2008 г., г. Миасс, оз. Тургояк.
+          </p>
+          <p class="small_text_center">
+            - XI Всероссийский Форум Единой системы оценки соответствия на объектах, подконтрольных Федеральной службе
+            по экологическому, технологическому и атомному надзору 2013г. г. Сочи.
+          </p>
+          <div class="line_inside_pages"></div>
+          <p class="subtitle_center">
+            В 2016 г. АНО МАЦ "Стандарт-Диагностика" изменила название в соответствии с Федеральным законом от 29
+            декабря 2012 года №273-ФЗ «Об образовании в Российской Федерации», став Автономной некоммерческой
+            организацией дополнительного профессионального образования «Стандарт-Диагностика» (АНО ДПО
+            «Стандарт-Диагностика») и вновь получила лицензию.
+          </p>
+          <p class="small_text_center">
+            В настоящее время АНО ДПО «Стандарт-Диагностика» предоставляет широкий спектр различных услуг. Реализация
+            программ профессионального обучения, дополнительного профессионального образования ведется по следующим
+            направлениям:
+          </p>
+          <div class="introduction_text_center">
+           <p>
+              • предаттестационная подготовка руководителей и специалистов по вопросам промышленной безопасности,
+            энергетической безопасности и безопасности гидротехнических сооружений;
+           </p>
+           <p>
+              •	подготовка к подтверждению и повышению группы допуска по электробезопасности;
+           </p>
+           <p>
+              •	обучение и проверка знаний требований охраны труда руководителей,  специалистов  и уполномоченных по охране труда;
+           </p>
+           <p>
+              •	обучение пожарно-техническому минимуму руководителей, специалистов и работников  предприятий;
+           </p>
+           <p>
+              •	подготовка по профессиям;
+           </p>
+           <p>
+              •	подготовка по профессиям;
+           </p>
+           <p>
+              •	повышение квалификации, обучающие семинары и тренинги для руководителей  и специалистов;
+           </p>
+           <p>
+              •	подготовка специалистов по визуальному и измерительному контролю в соответствии с требованиями «Правил аттестации персонала в области неразрушающего контроля» (I и II уровень).
+           </p>
+          </div>
+          <div class="line_inside_pages"></div>
+          <p class="small_text_center">
+             Организация укомплектована необходимым учебно-методическим и информационным обеспечением. Имеется необходимый библиотечный фонд учебных материалов для слушателей и преподавателей в печатном и электронном виде, который своевременно пополняется новыми материалами.
+          </p>
+        
+          </div>
+        </div>
+        <div class="col-xl-1"></div>
+        <div class="col-xl-3 line_left">
+          <div class="box_right_column_center">
+              <div class="headline_right_column">
+                 Разрешительные документы
+                </div>
+               <div class="box_center_img">
+                  <main role="main">
+                      <p class="imglist">
+                          <a href="{% static 'img/sur_22_ac_max.jpg' %}" data-fancybox="group1" data-type="image">
+                              <img src="{% static 'img/sur_22_ac_min.jpg' %}" class="img-fluid img_box_center">
+                          </a>
+                          <a href="{% static 'img/sur_3csp_max.jpg' %}" data-fancybox="group1" data-type="image">
+                              <img src="{% static 'img/sur_3csp_min.jpg' %}" class="img-fluid img_box_center">
+                          </a>
+                          <a href="{% static 'img/acsm_62_max.jpg' %}" data-fancybox="group1" data-type="image">
+                              <img src="{% static 'img/acsm_62_min.jpg' %}" class="img-fluid img_box_center">
+                          </a>
+                          <a href="{% static 'img/acso_114_max.jpg' %}" data-fancybox="group1" data-type="image">
+                              <img src="{% static 'img/acso_114_min.jpg' %}" class="img-fluid img_box_center">
+                          </a>
+                          <a href="{% static 'img/acst_132_max.jpg' %}" data-fancybox="group1" data-type="image">
+                              <img src="{% static 'img/acst_132_min.jpg' %}" class="img-fluid img_box_center">
+                          </a>
+                          <a href="{% static 'img/dopusk_st_max.jpg' %}" data-fancybox="group1" data-type="image">
+                              <img src="{% static 'img/dopusk_st_min.jpg' %}" class="img-fluid img_box_center">
+                          </a>
+                          <a href="{% static 'img/IL_max.jpg' %}" data-fancybox="group1" data-type="image">
+                              <img src="{% static 'img/IL_min.jpg' %}" class="img-fluid img_box_center">
+                          </a>
+                      </p>
+                  </main>
+               </div>
+          </div>
+        </div>
+      </div>
+      
+      
+          <button class="back__to__main">
+            <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"
+                class="arrow__back__to__main text-align-center" alt="">
+              На главную</a>
+          </button>
+    </div>
 
 
-    <div class="line__otstup__inside__pages"></div>
-
-    <button class="back__to__main">
-      <a href="{% url 'main' %}"> <img src="/img/back__arrow-01.png" class="arrow__back__to__main text-align-center" alt="">
-        На главную</a>
-    </button>
-    <div class="line__otstup__inside__pages"></div>
   </div>
 
 </div>
+{% endblock  %}
