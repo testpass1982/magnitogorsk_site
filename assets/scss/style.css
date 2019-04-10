@@ -327,11 +327,29 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .bd-sidebar { position: sticky; top: 4rem; z-index: 1000; height: calc(30vh - 4rem); }
 
-.header__political { font-size: 18px; text-transform: uppercase; font-weight: 400; color: #000; }
+.header__political { font-size: 18px; text-transform: uppercase; font-weight: 450; color: #000; margin-top: 15px; }
 
 @media screen and (max-width: 1199px) { .header__political { margin-top: 15px; } }
 
-.political__text__small { font-size: 14px; font-weight: 300; color: #000; margin-top: 15px; margin-bottom: 15px; }
+.political__text__small { font-size: 16px; font-weight: 400; color: #000; margin-top: 15px; margin-bottom: 15px; }
+
+.text_pynkt { font-size: 14px; font-weight: 450; }
+
+.line_end { border: 0.5px solid #ebebeb; margin-top: 25px; margin-bottom: 25px; }
+
+.header_right_column { font-size: 20px; font-weight: 400; color: #000; }
+
+@media screen and (max-width: 768px) { .header_right_column { margin-top: 15px; } }
+
+.box_right_column a { text-decoration: none; list-style-type: none; font-size: 16px; color: #000; font-weight: 400; line-height: 1.9; }
+
+.box_right_column a:hover { color: #3168ff; transition: 0.3s; }
+
+.sider_bar { position: sticky; top: 4rem; z-index: 1000; height: calc(45vh); }
+
+.left_line_headline { border: 0.5px solid #39567e; margin-top: 35px; width: 95px; }
+
+@media screen and (max-width: 992px) { .left_line_headline { display: none; } }
 
 .box__standart { box-shadow: 0 2px 18px rgba(27, 27, 27, 0.03); margin-top: 25px; padding: 35px; border-radius: 3px; border: 1px solid #f3f3f3; }
 

@@ -1023,21 +1023,73 @@ font-weight: 450;
 .header__political {
     font-size: 18px;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 450;
     color: #000;
-
+    margin-top: 15px;
+  
     @media screen and (max-width: 1199px) {
         margin-top: 15px;
     }
-}
-
-.political__text__small {
-    font-size: 14px;
-    font-weight: 300;
+  
+  }
+  
+  .political__text__small {
+    font-size: 16px;
+    font-weight: 400;
     color: #000;
     margin-top: 15px;
     margin-bottom: 15px;
-}
+  }
+  
+  .text_pynkt{
+  font-size: 14px;
+  font-weight: 450;
+  }
+  
+  .line_end {
+    border: 0.5px solid #ebebeb;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  
+  .header_right_column{
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    @media screen and (max-width: 768px) {
+        margin-top: 15px;
+    }
+  }
+  
+  .box_right_column a{
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  line-height: 1.9;
+  &:hover{
+    color: rgb(49, 104, 255);
+    transition: 0.3s;
+  }
+  }
+  
+  .sider_bar {
+    position: sticky;
+    top: 4rem;
+    z-index: 1000;
+    height: calc(45vh);
+  }
+  
+  .left_line_headline {
+    border: 0.5px solid #39567e;
+    margin-top: 35px;
+    width: 95px;
+    @media screen and (max-width: 992px) {
+      display: none;     
+    }
+  }
+  
 
 // Профстандарты в области сварки
 
