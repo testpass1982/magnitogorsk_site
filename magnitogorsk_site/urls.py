@@ -52,6 +52,7 @@ urlpatterns = [
     path('acsp/', mainapp.acsp, name='acsp'),
     path('atsssp/', mainapp.atsssp, name='atsssp'),
     path('center/', mainapp.center, name='center'),
+    path('center_two/', mainapp.center_two, name='center_two'),
     # path('new_weld_data/', domain.CreateViewMetaclass.as_view(), name='new_data'),
     # path('weld_data_list/', domain.WeldListView.as_view(), name='weld_data_list')
 ]

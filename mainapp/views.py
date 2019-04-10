@@ -299,6 +299,9 @@ def atsssp(request):
 def center(request):
     return render(request, 'mainapp/center.html')
 
+def center_two(request):
+    return render(request, 'mainapp/center_two.html')
+
 
 def about(request):
     """this is docstring"""
