@@ -29,6 +29,7 @@ DEBUG = True
 # ALLOWED_HOSTS = ['naks-smolensk.minml.ru']
 ALLOWED_HOSTS = ['*']
 
+MAX_UPLOAD_SIZE = "10485760"
 
 # Application definition
 
