@@ -296,11 +296,11 @@ def acst(request):
 def atsssp(request):
     return render(request, 'mainapp/atsssp.html')
 
-def center(request):
-    return render(request, 'mainapp/center.html')
+def center_ano_dpo(request):
+    return render(request, 'mainapp/center_ano_dpo.html')
 
-def center_two(request):
-    return render(request, 'mainapp/center_two.html')
+def center_ac_naks(request):
+    return render(request, 'mainapp/center_ac_naks.html')
 
 
 def about(request):
