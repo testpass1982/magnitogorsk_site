@@ -28,146 +28,54 @@
       <div class="col-xl-2 "></div>
       <div class="col-xl-4">
         <div class="box_contacti">
-          <div class="subtitle_contacti">Аттестационный центр ООО "НАКС Стандарт Диагностика"
+          <div class="subtitle_contacti">Контакты {{ profile.org_short_name }}
           </div>
           <div class="box_single_number">
-            <a href="tel:(3519) 58-09-07">(3519) 58-09-07</a>
-            <p class="consultant_number">Многоканальный</p>
+            <a href="tel:(3519) 58-09-07">{{ profile.org_main_phone }}</a>
+            <p class="consultant_number">{{ profile.org_main_phone_text }}</p>
           </div>
+      {% for contact in contacts %}
       <div class="box_sotrudnik">
           <div class="name_contacti">
-              Кормакова Елена Геннадьевна
+             {{ contact.title }}
             </div>
             <div class="position">
-              Директор ООО «НАКС Стандарт-Диагностика»
+             {{ contact.short_description }}
             </div>
             <div class="phone_name">
-                Тел.(3519)58-09-33 (доб.401)
-            </div>            
-            <div class="line_contacti"></div>
-      </div>
-      <div class="box_sotrudnik">
-          <div class="name_contacti">
-              Золотая Яна Викторовна
-            </div>
-            <div class="position">
-                Руководитель СУР-22АЦ; СУР-3ЦСП
+                {{ contact.phone }}
             </div>
             <div class="phone_name">
-                Тел.(3519)58-09-07 (доб.408)
-            </div>
-            <div class="email_contacti">
-              <a href="mailto:standbuh@diagmag.ru" title="Написать письмо">standbuh@diagmag.ru</a>
+                {{ contact.email }}
             </div>
             <div class="line_contacti"></div>
       </div>
-      <div class="box_sotrudnik">
-          <div class="name_contacti">
-              Фоменко Александр Николаевич
-            </div>
-            <div class="position">
-                Руководитель АЦСТ-132
-            </div>
-            <div class="phone_name">
-                Тел.(3519)58-09-07 (доб.409)
-            </div>
-            <div class="email_contacti">
-              <a href="mailto:sdiag@diagmag.ru" title="Написать письмо">sdiag@diagmag.ru</a>
-            </div>
-            <div class="line_contacti"></div>
-      </div>
-      <div class="box_sotrudnik">
-          <div class="name_contacti">
-              Андреева Светлана Васильевна
-            </div>
-            <div class="position">
-                Руководитель АЦСМ-62; АЦСО-114
-            </div>
-            <div class="phone_name">
-                Тел.(3519)58-09-07 (доб.408)
-            </div>
-            <div class="email_contacti">
-              <a href="mailto:std-diag@diagmag.ru" title="Написать письмо">std-diag@diagmag.ru</a>
-            </div>
-            <div class="line_contacti"></div>
-      </div>
-      <div class="box_sotrudnik">
-          <div class="name_contacti">
-              Золотой Александр Андреевич
-            </div>
-            <div class="position">
-                Начальник испытательной лаборатории
-            </div>
-            <div class="phone_name">
-                Тел.(3519)58-09-07(доб.408)
-            </div>
-            <div class="email_contacti">
-              <a href="mailto:zolotoy_a@diagmag.ru" title="Написать письмо">zolotoy_a@diagmag.ru</a>
-            </div>
-            <div class="line_contacti"></div>
-      </div>
+      {% endfor %}
 
         </div>
       </div>
-      <div class="col-xl-1"></div>
-      <div class="col-xl-4">
-        <div class="box_contacti">
-          <div class="subtitle_contacti">АНО ДПО «Стандарт – Диагностика» <br> Учебно-курсовой центр
-          </div>
-          <div class="box_single_number">
-              <a href="tel:(3519) 58-09-33 ">(3519) 58-09-33 </a>
-              <p class="consultant_number">Многоканальный</p>
-            </div>
-      <div class="box_sotrudnik">
-          <div class="name_contacti">
-              Посадская Татьяна Семеновна 
-            </div>           
-            <div class="phone_name">
-                (оф.112) (доб. тел. 402)
-            </div>            
-            <div class="line_contacti"></div>
-      </div>
-      <div class="box_sotrudnik">
-          <div class="name_contacti">
-              Жаворонкова Елена Николаевна 
-            </div>           
-            <div class="phone_name">
-                (оф. 109) (доб. тел. 404)
-            </div>            
-            <div class="line_contacti"></div>
-      </div>
-      <div class="box_sotrudnik">
-          <div class="name_contacti">
-              Молчанова Наталья Николаевна 
-            </div>           
-            <div class="phone_name">
-                (оф. 102) (доб. тел. 405)
-            </div>            
-            <div class="line_contacti"></div>
-            <div class="email_contacti">
-                <a href="mailto:ukc@diagmag.ru" title="Написать письмо">ukc@diagmag.ru</a>
-              </div>
-      </div>
-  
 
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xl-2"></div>
-      <div class="col-xl-10">
-          <p class="headline_contacti">
+      <div class="col-xl-6">
+              <div class="col-xl-10">
+          <p class="headline_contacti" id="map">
               Наше местоположение
           </p>
-          <div class="contacti_adres">
-              455019, г. Магнитогорск, Челябинская обл., ул. Профсоюзная, 14 (1 этаж)
-          </div>
+          <div class="contacti_adres">{{ profile.org_address }}</div>
           <div class="ya__map">
-              <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad62703690dc8660795097690647db22fb307a8230a1ddd42ed5d2eb25db377d1&amp;width=100%&amp;height=297&amp;lang=ru_RU&amp;scroll=true"></script>
+              <script type="text/javascript" charset="utf-8" async src="{{ profile.org_address_map_link }}"></script>
            </div>
       </div>
+      </div>
+
+
+        </div>
+      </div>
     </div>
+
+
+
+
+
 
     <button class="back__to__main">
       <a href="{% url 'main' %}"> <img src="{% static 'img/back__arrow-01.png' %}"

@@ -131,6 +131,18 @@ class Article(ContentMixin):
     def __str__(self):
         return self.title
 
+class DocumentCategory(models.Model):
+    name = models.CharField(u'Название категории документов', max_length=64)
+    code = models.CharField(u'Шифр категории (латиницей)', max_length=10)
+    number = models.SmallIntegerField(u'Порядок сортировки', default=0)
+
+    class Meta:
+        verbose_name = 'Категория документов'
+        verbose_name_plural = 'Категории документов'
+
+    def __str__(self):
+        return self.name
+
 
 class Document(models.Model):
     title = models.CharField(u'Название', max_length=500)
@@ -142,17 +154,10 @@ class Document(models.Model):
                                         'pdf', 'docx', 'doc', 'jpg', 'jpeg'],
                                     message="Неправильный тип файла, используйте\
                                         PDF, DOCX, DOC, JPG, JPEG")])
+    category = models.ForeignKey(DocumentCategory, null=True, blank=True, on_delete=models.SET_NULL)
     uploaded_at = models.DateTimeField(
         verbose_name='Загружен', default=timezone.now)
-    tags = models.ManyToManyField(Tag, verbose_name='Тэги', blank=True, help_text="\
-                        Тэгами осуществляется управление страницей 'Документы'<br>\
-                        Для отображения документов в разделе СУР-22АЦ используйте тег 'СУР-22АЦ'<br>\
-                        Для отображения документов в разделе АЦСМ-62 используйте тег 'АЦСМ-62'<br>\
-                        Для отображения документов в разделе АЦСО-114 используйте тег 'АЦСО-114'<br>\
-                        Для отображения документов в разделе АЦСТ-132 используйте тег 'АЦСТ-132'<br>\
-                        Для отображения документов в разделе 'Лаборатория' используйте тег 'ЛАБ-РК-НК'<br>\
-                        Для отображения документов в разделе АНО ДПО 'Стандарт-Диагностика' используйте тег 'АНО ДПО'<br>\
-                        ")
+    tags = models.ManyToManyField(Tag, verbose_name='Тэги', blank=True)
     created_date = models.DateTimeField(
         default=timezone.now, verbose_name='Дата создания')
     post = models.ForeignKey(Post, verbose_name='Страница',
@@ -311,3 +316,75 @@ class WeldData(models.Model):
 
     class Meta:
         abstract = True
+
+class Profile(models.Model):
+    """class for templating organization"""
+    org_logotype = models.ImageField(u'Логотип организации', upload_to='upload/', blank=True, null=True, default=None)
+    org_short_name = models.CharField(u'Краткое название организации', max_length=100, blank=True, null=True, default=None)
+    org_full_name = models.CharField(u'Полное название организации', max_length=300, blank=True, null=True, default=None)
+    org_intro = models.TextField(u'Текст для главной страницы', blank=True, null=True, default=None)
+    org_history = models.TextField(u'История организаици', blank=True, null=True, default=None)
+    # phone1 for header
+    org_main_phone = models.CharField(u'Главный телефон организации (используется в хедере)', max_length=30, blank=True, null=True, default=None)
+    org_main_phone_text = models.CharField(u'Подпись под телефоном в хедере, например "Многоканальный"', max_length=30, blank=True, null=True, default=None)
+    # phone2 for header
+    org_secondary_phone = models.CharField(u'Второй телефон организации (используется в хедере)', max_length=30, blank=True, null=True, default=None)
+    org_secondary_phone_text = models.CharField(u'Подпись под вторым телефоном в хедере, например "Бухгалтерия"', max_length=30, blank=True, null=True, default=None)
+    org_phones = models.TextField(u'Телефоны', blank=True, null=True, default=None)
+    org_email = models.TextField(u'Адрес электронной почты', blank=True, null=True, default=None)
+    org_header_emails = models.TextField(u'Адреса электронной почты (для хедера)', blank=True, null=True, default=None)
+    org_header_phones = models.TextField(u'Телефоны (для хедера)', blank=True, null=True, default=None)
+    org_address = models.TextField(u'Адрес местоположения организации', null=True, blank=True, default=None)
+    org_address_map_link = models.URLField(u'Ссылка на карту', blank=True, null=True, default=None)
+    org_csp_code = models.CharField(u'шифр ЦСП (необязательно)', max_length=20, null=True, blank=True)
+    org_csp_reestr_link = models.URLField(u'Ссылка на реестр ЦСП', blank=True, null=True)
+    org_acsp_code = models.CharField(u'шифр АЦСП (необязательно)', max_length=20, null=True, blank=True)
+    org_acsp_reestr_link = models.URLField(u'Ссылка на реестр АЦСП', blank=True, null=True)
+    org_acsm_code = models.CharField(u'шифр АЦСМ (необязательно)', max_length=20, null=True, blank=True)
+    org_acsm_reestr_link = models.URLField(u'Ссылка на реестр АЦСМ', blank=True, null=True)
+    org_acso_code = models.CharField(u'шифр АЦСО (необязательно)', max_length=20, null=True, blank=True)
+    org_acso_reestr_link = models.URLField(u'Ссылка на реестр АЦСО', blank=True, null=True)
+    org_acst_code = models.CharField(u'шифр АЦСТ (необязательно)', max_length=20, null=True, blank=True)
+    org_acst_reestr_link = models.URLField(u'Ссылка на реестр АЦСТ', blank=True, null=True)
+    org_cok_code = models.CharField(u'шифр ЦОК (необязательно)', max_length=20, null=True, blank=True)
+    org_cok_reestr_link = models.URLField(u'Ссылка на реестр ЦОК', blank=True, null=True)
+    number = models.SmallIntegerField(u'Порядок сортировки', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Профиль организации'
+        verbose_name_plural = 'Профили организации'
+
+    def __str__(self):
+        return self.org_short_name
+
+class Service(models.Model):
+    """class for service template"""
+    title = models.CharField(
+        u'Название услуги', max_length=64, help_text="""
+            При добавлении услуги в этот раздел автоматически
+            будет создан пункт меню в разделе "Услуги", в котором они
+            сортируются в соответствии с порядком сортировки
+        """)
+    html = RichTextUploadingField(u'Описание услуги')
+    number = models.SmallIntegerField(u'Порядок сортировки', blank=True, null=True, default=None)
+
+    class Meta:
+        verbose_name = 'Услуга'
+        verbose_name_plural = 'Услуги'
+
+    def __str__(self):
+        return self.title
+
+class Chunk(models.Model):
+    """class for making html chunks on pages"""
+    title = models.CharField(u'Название вставки', max_length=64)
+    code = models.CharField(u'Уникальный код вставки', max_length=64, default='КОД_ВСТАВКИ')
+    html = RichTextUploadingField(u'Форматирование вставки')
+    raw_html = models.TextField(u'Чистый html', blank=True, null=True, default=None)
+    class Meta:
+        verbose_name = 'Вставка'
+        verbose_name_plural = 'Вставки'
+
+    def __str__(self):
+        return self.title
+

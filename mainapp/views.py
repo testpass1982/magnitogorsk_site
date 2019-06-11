@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post, PostPhoto, Tag, Category, Document, Article, Message, Contact
 from .models import Staff, Registry, Profstandard, NewsPost
+from .models import Service
 from .forms import PostForm, ArticleForm, DocumentForm
 from .forms import SendMessageForm, SubscribeForm, AskQuestionForm, SearchRegistryForm
 from django.contrib.auth.decorators import login_required
@@ -249,32 +250,6 @@ def messages(request):
     return render(request, 'mainapp/messages.html', context)
 
 
-def documents(request):
-    """view for documents page"""
-
-    doctypes = ['Аккредитация САСв', 'Допуск ЦОК', 'Оценочное средство']
-
-    tags = Tag.objects.all().filter(name__in=doctypes)
-
-    accreditation_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='Аккредитация САСв'))
-    cok_accreditation_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='Допуск ЦОК'))
-    os_doc_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='Оценочное средство'))
-    print(accreditation_list)
-    print(cok_accreditation_list)
-    print(os_doc_list)
-
-    content = {
-        'title': 'Документы',
-        'accreditation_list': accreditation_list,
-        'cok_accreditation_list': cok_accreditation_list,
-        'os_doc_list': os_doc_list
-    }
-    return render(request, 'mainapp/documents.html', content)
-
-
 def services(request):
     return render(request, 'mainapp/services.html')
 
@@ -391,32 +366,13 @@ def atso(request):
 def docs(request):
     """view for documents page"""
 
-    doctypes = ['СУР-22АЦ', 'АЦСМ-62', 'АЦСО-114', 'АЦСТ-132', 'АНО ДПО', 'ЛАБ-РК-НК']
-    other_tags = Tag.objects.exclude(name__in=doctypes)
-    # print(other_tags)
-    sur_22_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='СУР-22АЦ'))
-    acsm_62_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='АЦСМ-62'))
-    acso_114_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='АЦСО-114'))
-    acst_132_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='АЦСТ-132'))
-    ano_dpo_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='АНО ДПО'))
-    lab_list = Document.objects.filter(
-        tags__in=Tag.objects.filter(name='ЛАБ-РК-НК'))
-    other_docs = Document.objects.filter(tags__in=other_tags)
-
+    documents = Document.objects.all()
+    # import pdb; pdb.set_trace()
     content = {
-        'sur_22ac_list': sur_22_list,
-        'acsm_62_list': acsm_62_list,
-        'acso_114_list': acso_114_list,
-        'acst_132_list': acst_132_list,
-        'ano_dpo_list': ano_dpo_list,
-        'lab_list': lab_list,
-        'other_docs': other_docs,
+        'title': 'Документы',
+        'documents': documents,
     }
+
     return render(request, 'mainapp/doc_new.html', content)
 
 def reestr(request):
@@ -432,3 +388,48 @@ def profstandard(request):
         'profstandards': profstandards,
     }
     return render(request, 'mainapp/profstandarti_new.html', content)
+
+def import_profile(request):
+    from .forms import ProfileImportForm
+    from .models import Profile
+    from .utilites import update_from_dict
+    content = {}
+    if request.method == "POST":
+        if len(request.FILES) > 0:
+            form = ProfileImportForm(request.POST, request.FILES)
+            if form.is_valid():
+                data = request.FILES.get('file')
+                file = data.readlines()
+                import_data = {}
+                for line in file:
+                    string = line.decode('utf-8')
+                    if string.startswith('#') or string.startswith('\n'):
+                        # print('Пропускаем: ', string)
+                        continue
+                    splitted = string.split("::")
+                    import_data.update({splitted[0].strip(): splitted[1].strip()})
+                    # print('Импортируем:', string)
+                profile = Profile.objects.first()
+                if profile is None:
+                    profile = Profile.objects.create(org_short_name="DEMO")
+                try:
+                    #updating existing record with imported fields
+                    update_from_dict(profile, import_data)
+                    content.update({'profile_dict': '{}'.format(profile.__dict__)})
+                    content.update({'profile': profile})
+                    print('***imported***')
+                except Exception as e:
+                    print("***ERRORS***", e)
+                    content.update({'errors': e})
+        else:
+            content.update({'errors': 'Файл для загрузки не выбран'})
+        return render(request, 'mainapp/includes/profile_load.html', content)
+
+def service_details(request, pk):
+    service = get_object_or_404(Service, pk=pk)
+    template = 'mainapp/service_details.html'
+    content = {
+        'service': service,
+        'other_services': Service.objects.all().exclude(pk=service.pk)[:3]
+    }
+    return render(request, template, content)

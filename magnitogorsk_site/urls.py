@@ -35,7 +35,6 @@ urlpatterns = [
     path('messages/', mainapp.messages, name='messages'),
     path('validate_form/', mainapp.validate_form,
          name='validate_form'),  # use for ajax form validation
-    path('documents/', mainapp.documents, name="documents"),
     path('services/', mainapp.services, name="services"),
     path('docs/', mainapp.docs, name="docs"),
     path('reestr/', mainapp.reestr, name="reestr"),
@@ -53,6 +52,8 @@ urlpatterns = [
     path('atsssp/', mainapp.atsssp, name='atsssp'),
     path('center_ano_dpo/', mainapp.center_ano_dpo, name='center_ano_dpo'),
     path('center_ac_naks/', mainapp.center_ac_naks, name='center_ac_naks'),
+    path('import_profile/', mainapp.import_profile, name='import_profile'),
+    path('service_details/<slug:pk>', mainapp.service_details, name='service_details'),
     # path('new_weld_data/', domain.CreateViewMetaclass.as_view(), name='new_data'),
     # path('weld_data_list/', domain.WeldListView.as_view(), name='weld_data_list')
 ]

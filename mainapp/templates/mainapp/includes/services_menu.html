@@ -1,58 +1,22 @@
 {% load link_holders %}
+{% if all_services|length > 0 %}
 <div class="header__name">
     <p class="">Услуги центра</p>
 </div>
 <div class="row">
+    {% for service in all_services %}
     <div class="col-md-6 col-xl-12">
         <div class="button__services">
-            <a href="{% url 'atso' %}#page-top">
+            <a href="{% url 'service_details' service.pk %}#page-top">
                 <div class="box__service">
                     <p class="services__name">
 
-                        Аттестация сварочного оборудования</p>
+                        {{ service.title }}</p>
                 </div>
             </a>
         </div>
     </div>
-    <div class="col-md-6 col-xl-12">
-        <div class="button__services">
-            <a href="{% url 'acsm' %}">
-                <div class="box__service">
-                    <p class="services__name">Аттестация сварочных материалов</p>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-12">
-        <div class="button__services">
-            <a href="{% url 'acst' %}">
-                <div class="box__service">
-                    <p class="services__name">Аттестация производственной технологии сварки (наплавки)
-                    </p>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-12">
-        <div class="button__services">
-            <a href="{% url 'atsssp' %}">
-                <div class="box__service">
-                    <p class="services__name">Аттестация сварщиков и специалистов
-                    </p>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-12">
-        <div class="button__services">
-            <a href="{% url 'lab' %}">
-                <div class="box__service">
-                    <p class="services__name">Лаборатория разрушающего <br>
-                        и неразрушающего контроля
-                    </p>
-                </div>
-            </a>
-        </div>
-    </div>
+    {% endfor %}
 
 </div>
+{% endif %}

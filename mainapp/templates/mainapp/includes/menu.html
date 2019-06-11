@@ -30,56 +30,33 @@
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">О группе компаний</a>
+                    aria-haspopup="true" aria-expanded="false">О компании</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    {% comment %} <a class="dropdown-item"
-                      href="{% link_holder 'AC_STANDARD_DIAGNOSTIKA' %}">{% title_holder 'AC_STANDARD_DIAGNOSTIKA' %}</a> {% endcomment %}
-                    <div class="sub-dropdown-right dropdown dropright">
-                      <a class="dropdown-toggle" data-toggle="dropdown">
-                        АЦ ООО "НАКС Стандарт-Диагностика"
-                      </a>
-                      <div class="sub-dropdown-menu dropdown-menu">
-                        <a class="dropdown-item" href="{% link_holder 'AC_NAKS_DIAGNOSTIKA' %}">{% title_holder 'AC_NAKS_DIAGNOSTIKA' %}</a>
-                        <a class="dropdown-item" href="{% link_holder 'SUR_22AC' %}#page-top">Аттестация персонала сварочного производства (СУР-22АЦ, СУР-3ЦСП)</a>
-                        <a class="dropdown-item" href="{% link_holder 'ACSM_62' %}#page-top">Аттестация сварочных материалов (АЦСМ-62)</a>
-                        <a class="dropdown-item" href="{% link_holder 'ACSO_114' %}#page-top">Аттестация сварочного оборудования (АЦСО-114)</a>
-                        <a class="dropdown-item" href="{% link_holder 'ACST_132' %}#page-top">Аттестация сварочных технологий (АЦСТ-132)</a>
-                      </div>
-                    </div>
-                    <div class="sub-dropdown-right dropdown dropright">
-                      <a class="dropdown-toggle" data-toggle="dropdown">
-                        УЦ АНО ДПО "Стандарт-Диагностика"
-                      </a>
-                      <div class="sub-dropdown-menu dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'center_ano_dpo' %}#page-top">Об учебно-курсовом центре</a>
-                        <a class="dropdown-item" href="{% link_holder 'ANO_DOCS' %}#page-top">Разрешительные документы</a>
-                        <a class="dropdown-item" href="{% link_holder 'PROGRAMS' %}#page-top">Профессиональная подготовка</a>
-                        <a class="dropdown-item" href="{% link_holder 'QUALIFIKATION' %}#page-top">Повышение квалиификации</a>
-                        <a class="dropdown-item" href="{% link_holder 'PREDATT' %}#page-top">Предаттестационная подготовка по ПБ</a>
-                      </div>
-                    </div>
-                    <a class="dropdown-item" href="{% url 'orgstruktura' %}#page-top">Организационная структура</a>
+
+
+                        <a class="dropdown-item" href="{% link_holder 'ABOUT_ORG' %}#page-top">{% title_holder 'ABOUT_ORG' %}</a>
+                        <a class="dropdown-item" href="{% link_holder 'ORG_STRUCTURE' %}">{% title_holder 'ORG_STRUCTURE' %}</a>
+
+
                   </div>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Услуги</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'atso' %}#page-top">Аттестация сварочного оборудования</a>
-                    <a class="dropdown-item" href="{% url 'acsm' %}#page-top">Аттестация сварочных материалов</a>
-                    <a class="dropdown-item" href="{% url 'acst' %}#page-top">Аттестация сварочных технологий</a>           
-                    <a class="dropdown-item" href="{% url 'atsssp' %}#page-top">Аттестация сварщиков и специалистов</a>
-                    <a class="dropdown-item" href="{% url 'lab' %}#page-top">Испытательная лаборатория</a>                          
-                   
+                  {% for service in all_services %}
+                    <a class="dropdown-item" href="{% url 'service_details' service.pk %}#page-top">{{ service.title }}</a>
+                  {% endfor %}
+
+
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav__link__two dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Документы</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'docs' %}#ac_stdiag">Документы ООО "НАКС Стандарт-Диагностика"</a>
-                    <a class="dropdown-item" href="{% url 'docs' %}#ano_dpo_stdiag">Документы АНО ДПО "Стандарт-ДиагностикаЙ</a>
-                    <a class="dropdown-item" href="{% url 'docs' %}#lab_stdiag">Документы лаборатории разрушающего <br>
-                      и неразрушающего контроля</a>
+                  {% for category in document_categories %}
+                    <a class="dropdown-item" href="{% url 'docs' %}#{{ category.code }}">{{ category.name }}</a>
+                  {% endfor %}
                   </div>
                 </li>
                 {% comment %} <li class="nav-item active">
@@ -92,7 +69,7 @@
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
-              </ul>             
+              </ul>
 
             </div>
             <div class="system__button">

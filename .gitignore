@@ -87,6 +87,8 @@ local_settings.py
 
 .env
 db.sqlite3
+style.css
+style.css.map
 #*.jpg
 #*.pdf
 #*.jpeg

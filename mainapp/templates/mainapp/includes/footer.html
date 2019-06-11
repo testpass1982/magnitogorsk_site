@@ -6,23 +6,18 @@
             <div class="col-md-4 col-xl-4">
                 <div class="logo_ac_footer">
                     <img src="{% static 'img/logo_ac_footer.png' %}" alt="">
-                </div>               
-                <div class="description">
-                 ООО "НАКС Стандарт-Диагностика" является
-                    аттестационным центром НАКС по направлениям аттестации персонала, сварочных материалов,
-                    оборудования и технологий и внесен в реестр НАКС
                 </div>
                 <div class="description">
-                    АНО ДПО «Стандарт-Диагностика» входит в Группу компаний
-                    «Диагностика», которая была основана в 1994 году.
-                    Учебный центр был создан как структурное подразделение ЗАО МНТЦ «Диагностика» в 1996 году.
-                    Получена лицензия Госгортехнадзора на подготовку кадров 22.04.1996г.
+                  {{ profile.org_short_name }} осуществляет деятельность по следующим направлениям: {% for service in all_services %}<span>{{service.title }}{% if not forloop.last %}, {% endif %}<span>{% endfor %}
+                </div>
+                <div class="description">
+                {{ profile.org_history }}
                 </div>
 
-                <a href="{% url 'political' %}#page-top" class="political__footer">Политика конфиденциальности</a>
+                <a href="{% link_holder 'CONFID_POLITIC' %}#page-top" class="political__footer">{% title_holder 'CONFID_POLITIC' %}</a>
                 <div class="line__footer__small"></div>
                 <div class="prava__footer">
-                    © 1994 - 2019 ООО АЦ «НАКС Стандарт-Диагностика». Все права защищены.
+                    © 1994 - 2019 {{ profile.short_name }}. Все права защищены.
                 </div>
 
             </div>
@@ -30,18 +25,14 @@
                 <p class="header__text__footer">Информация</p>
                 <div class="menu__footer">
                     <ul class="spisok__footer">
-                        <a href="{% url 'center_ano_dpo' %}#page-top">
-                            <li>Центр аттестации</li>
+
+                        {% for service in all_services %}
+                        <a href="{% url 'service_details' service.pk %}#page-top">
+                            <li>{{ service.title }}</li>
                         </a>
-                        <a href="{% url 'docs' %}">
-                            <li>Документы</li>
-                        </a>                           
-                        <a href="{% url 'contact' %}">
-                            <li>Контакты</li>
-                        </a>
-                        <a href="{% url 'profstandard' %}">
-                            <li>Профстандарты в области сварки</li>
-                        </a>
+                        {% endfor %}
+
+
                     </ul>
                 </div>
 
@@ -54,17 +45,15 @@
                     <p class="number__footer">
                         (3519) 58-09-07
                     </p>
-                    <p class="consultation__text">Консультация специалиста</p>
+                    <p class="consultation__text">{{ profile.org_main_phone_text }}</p>
                     <button class="feedback__footer">
                         <a href="#" data-toggle="modal" data-target="#modal-statement">
                             Оставить заявку</a>
                     </button>
                     <div class="adres__footer__block">
-                        <p class="adres__footer__text">455019, Челябинская область, <br> город Магнитогорск, улица <br>
-                            Профсоюзная, дом 14, офис 111</p>
+                        <p class="adres__footer__text">{{ profile.org_address }}</p>
                         <div class="click__on__map_footer">
-                            <a data-fancybox="" data-options="" title="Открыть карту"
-                                href="https://www.google.com/maps/place/%D1%83%D0%BB.+%D0%9F%D1%80%D0%BE%D1%84%D1%81%D0%BE%D1%8E%D0%B7%D0%BD%D0%B0%D1%8F,+14,+%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA,+%D0%A7%D0%B5%D0%BB%D1%8F%D0%B1%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB.,+455019/@53.3974046,59.0340087,18z/data=!3m1!4b1!4m5!3m4!1s0x43d12f82af4c55f9:0x1cb4da0de2b692ba!8m2!3d53.397403!4d59.035103">
+                            <a title="Открыть карту" href="{% url 'contact' %}#map">
                                 Посмотреть на карте</a>
                         </div>
                     </div>
@@ -72,17 +61,16 @@
             </div>
             <div class="col-xl-3">
                 <div class="email__block">
-                    <a href="mailto:std-diag@diagmag.ru" class="email__link__footer">std-diag@diagmag.ru</a>
-                    <p class="email__text__footer">Аттестация сварочных материалов,
-                        и сварочного оборудования.</p>
-                    <a href="mailto:standbuh@diagmag.ru" class="email__link__footer">standbuh@diagmag.ru</a>
-                    <p class="email__text__footer">Аттестация сварщиков и специалистов сварочного производства.
-                    </p>
-                    <a href="mailto:zolotoy_a@diagmag.ru" class="email__link__footer">zolotoy_a@diagmag.ru</a>
-                    <p class="email__text__footer">Лаборатория неразрушающих и разрушающих методов контроля.</p>
-                    <a href="mailto:sdiag@diagmag.ru" class="email__link__footer">sdiag@diagmag.ru</a>
-                    <p class="email__text__footer">Аттестация сварочных материалов,
-                        и сварочного оборудования.</p>
+
+                    {% for contact in footer_contacts %}
+
+                    <a href="mailto:{{ contact.email }}" class="email__link__footer d-block">{{ contact.email }}</a>
+                    <a href="tel:{{ contact.phone }}" class="email__link__footer d-block">{{ contact.phone }}</a>
+                    <p class="email__text__footer">{{ contact.description }}</p>
+                    {% endfor %}
+
+
+
                     <p class="razrabotano">
                         Разработано в - НАКС Медиа
                     </p>

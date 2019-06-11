@@ -105,3 +105,8 @@ class SearchRegistryForm(forms.Form):
     #             raise forms.ValidationError('File types is not allowed')
     #     except Exception as e:
     #         raise forms.ValidationError('Can not identify file type')
+
+
+class ProfileImportForm(forms.Form):
+    """form for profile import file"""
+    file = forms.FileField(allow_empty_file=True, required=False)

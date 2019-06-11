@@ -35,7 +35,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 320px) { .center__logo { padding-left: 45px; padding-right: 45px; } }
 
-.number { font-size: 28px; font-weight: 300; margin-bottom: 0; }
+.number { font-size: 20px; font-weight: 300; margin-bottom: 0; }
 
 @media screen and (max-width: 696px) { .number { font-size: 24px; } }
 
@@ -98,11 +98,13 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 @media screen and (max-width: 576px) { .bg__gradient { text-align: center; } }
 
-.bg__text__head { font-size: 36px; font-weight: 550; color: #fff; text-align: center; }
+.bg__text__head { font-size: 36px; font-weight: 550; color: #fff; }
 
 .box_acst_number { margin-bottom: 15px; }
 
-.box_acst_number a { font-size: 14px; margin-right: 10px; margin-bottom: 15px; color: #9fcdff; font-weight: 450; }
+.box_acst_number a { padding: 10px; font-size: 14px; margin-right: 10px; margin-bottom: 15px; color: #9fcdff; font-weight: 450; }
+
+.box_acst_number a:hover { background-color: white; color: #005bbb; }
 
 .line_bg_block { border: 0.5px solid rgba(255, 255, 255, 0.26); width: 150px; margin-bottom: 10px; }
 
@@ -292,7 +294,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .spks__link__footer a { text-decoration: none; padding: 0; margin: 0; }
 
-.number__footer { font-size: 28px; font-weight: 300; margin-bottom: 0; }
+.number__footer { font-size: 20px; font-weight: 300; margin-bottom: 0; }
 
 .consultation__text { font-size: 12px; margin-bottom: 0; font-weight: 450; }
 
@@ -569,7 +571,7 @@ body { font-family: "Avenir Next Cyr", sans-serif; font-size: 12px; line-height:
 
 .carousel-control-next-icon { background: url(../img/next__image__arrow-01.png) no-repeat; -o-transform: rotate(180deg); -ms-transform: rotate(180deg); -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg); }
 
-.box__news__inside__block { padding: 45px; background-color: #fcfcfc; margin-top: 30px; }
+.box__news__inside__block { background-color: #fcfcfc; margin-top: 30px; }
 
 @media screen and (max-width: 320px) { .box__news__inside__block { padding: 15px; } }
 
