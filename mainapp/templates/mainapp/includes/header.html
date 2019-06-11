@@ -4,7 +4,7 @@
         <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5 col-xl-3">
                         <a href="{% url 'main' %}">
-                                <img src="{% if profile.org_logotype %}{{ profile.org_logotype.url }}
+                                <img class="img-fluid" src="{% if profile.org_logotype %}{{ profile.org_logotype.url }}
                                 {% else %}https://place-hold.it/200x80{% endif %}" class="header__logo" alt="">
                         </a>
                 </div>

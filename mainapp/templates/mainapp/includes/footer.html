@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-4 col-xl-4">
                 <div class="logo_ac_footer">
-                    <img src="{% static 'img/logo_ac_footer.png' %}" alt="">
+                    <img src="{{ profile.org_logotype.url }}" alt="">
                 </div>
                 <div class="description">
                   {{ profile.org_short_name }} осуществляет деятельность по следующим направлениям: {% for service in all_services %}<span>{{service.title }}{% if not forloop.last %}, {% endif %}<span>{% endfor %}
