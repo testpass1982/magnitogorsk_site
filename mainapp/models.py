@@ -388,3 +388,15 @@ class Chunk(models.Model):
     def __str__(self):
         return self.title
 
+class Attestat(models.Model):
+    title = models.CharField(u'Название аттестата(сертификата)', max_length=60)
+    image = models.ImageField(u'Скан аттестата', upload_to="upload/")
+    number = models.SmallIntegerField(u'Порядок сортировки')
+
+    class Meta:
+        verbose_name = 'Аттестат соответствия'
+        verbose_name_plural = 'Аттестаты соответствия'
+
+    def __str__(self):
+        return self.title
+

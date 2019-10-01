@@ -4,9 +4,7 @@ from django.core.exceptions import ValidationError
 from django.contrib import messages
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Post, PostPhoto, Tag, Category, Document, Article, Message, Contact
-from .models import Staff, Registry, Profstandard, NewsPost
-from .models import Service
+from .models import *
 from .forms import PostForm, ArticleForm, DocumentForm
 from .forms import SendMessageForm, SubscribeForm, AskQuestionForm, SearchRegistryForm
 from django.contrib.auth.decorators import login_required
@@ -65,6 +63,8 @@ def main(request):
     # for post in posts:
     #     print(post)
 
+    attesttats = Attestat.objects.all().order_by('number')
+
     content = {
         'title': title,
         'posts': posts,
@@ -72,7 +72,8 @@ def main(request):
         # 'articles': main_page_articles,
         'send_message_form': SendMessageForm(),
         'subscribe_form': SubscribeForm(),
-        'ask_question_form': AskQuestionForm()
+        'ask_question_form': AskQuestionForm(),
+        'attestats': attesttats,
     }
 
     return render(request, 'mainapp/index.html', content)

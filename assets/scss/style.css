@@ -859,4 +859,8 @@ button:focus { outline: none; }
 
 .sub-dropdown-right:hover { color: #16181b; text-decoration: none; background-color: #f8f9fa; }
 
+.img_center { margin-bottom: 10px; }
+
+@media screen and (max-width: 600px) { .img_center { max-width: 300px; } }
+
 /*# sourceMappingURL=style.css.map */
