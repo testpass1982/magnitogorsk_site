@@ -11,6 +11,21 @@
                 </div>
                 <div class="content__text__info__box">
 
+                    <div class="box_img_center my-3">
+                        <div class="row">
+                        {% for att in attestats %}
+
+                        <div class="col-md-6 col-lg-4">
+                            <a href="{{ att.image.url }}" data-fancybox="images" data-caption="{{ att.title }}">
+                                <img src="{{ att.image.url }}" class="img-fluid img_center mr-2 mb-3" />
+                            </a>
+                        </div>
+
+                        {% endfor %}
+                        </div>
+
+                    </div>
+
                     <div class="box_content_info_center">
                         <p class="content_info_center">{% chunk 'ABOUT_ORG' 'chunk_html'%}</p>
                     </div>
@@ -19,20 +34,7 @@
                             Подробнее <img src="{% static 'img/arrow__next.png' %}" alt="">
                         </a>
                     </div>
-                    <div class="box_img_center my-3">
-                        <div class="row">
-                        {% for att in attestats %}
 
-                        <div class="col-md-6 col-lg-4">
-                            <a href="{{ att.image.url }}" data-fancybox="images" data-caption="{{ att.title }}">
-                                <img src="{{ att.image.url }}" class="img-fluid img_center mr-2" />
-                            </a>
-                        </div>
-
-                        {% endfor %}
-                        </div>
-
-                  </div>
 
                 </div>
             </div>
